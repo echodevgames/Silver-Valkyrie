@@ -40,8 +40,13 @@ public class BallManager : MonoBehaviour
     private readonly HashSet<int> activeBallInstanceIds = new HashSet<int>();
     private Coroutine refillRoutine;
 
-    private void OnEnable()
+    private bool hasStarted = false;
+
+    public void StartSpawning()
     {
+        if (hasStarted) return;
+
+        hasStarted = true;
         refillRoutine = StartCoroutine(RefillLoop());
     }
 
