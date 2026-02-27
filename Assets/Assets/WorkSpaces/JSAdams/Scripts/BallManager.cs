@@ -27,6 +27,7 @@ public class BallManager : MonoBehaviour
     [Header("Spawn Polish")]
     [Tooltip("How long the ball hangs in the hole before physics starts.")]
     [SerializeField] private float spawnHangDuration = 0.20f;
+    [SerializeField] private float gameStartSpawnDelay = 0.5f;
 
     [Tooltip("Starting scale while hanging (1 = normal size).")]
     [Range(0.1f, 1f)]
@@ -47,7 +48,10 @@ public class BallManager : MonoBehaviour
         if (hasStarted) return;
 
         hasStarted = true;
-        refillRoutine = StartCoroutine(RefillLoop());
+
+        // Instead of starting refill immediately,
+        // wait a short moment before the machine feeds the first ball
+        StartCoroutine(StartAfterDelay());
     }
 
     private void OnDisable()
@@ -55,7 +59,13 @@ public class BallManager : MonoBehaviour
         if (refillRoutine != null)
             StopCoroutine(refillRoutine);
     }
+    private IEnumerator StartAfterDelay()
+    {
+        // Premium subtle machine startup delay with inspector control
+        yield return new WaitForSeconds(gameStartSpawnDelay);
 
+        refillRoutine = StartCoroutine(RefillLoop());
+    }
     private IEnumerator RefillLoop()
     {
         while (true)
@@ -160,6 +170,8 @@ public class BallManager : MonoBehaviour
     }
 
     public int GetActiveBallCount() => activeBallInstanceIds.Count;
+
+
 }
 
 // ----- BallManager.cs END -----
