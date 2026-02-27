@@ -236,7 +236,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4685639186716384540, guid: 36a2ddf590850c2438a6ce5a5e4d3e02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -294,12 +294,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98eedff699f65b4387e6542761db053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Plunger
-  ram: {fileID: 5433107272153371382}
+  ramRb: {fileID: 0}
   housing: {fileID: 6326819779417256346}
   launchAction: {fileID: 7941719172869085890, guid: 4ed380db7ec924c4fb0ebe14f0732fc5, type: 3}
   maxPullDistance: 1.5
-  pullSpeed: 3
-  launchForce: 20
+  pullDuration: 0.6
+  slamSpeed: 30
   overshootAmount: 0.15
-  reboundSmoothTime: 0.05
-  settleSmoothTime: 0.08
+  settleSpeed: 10
