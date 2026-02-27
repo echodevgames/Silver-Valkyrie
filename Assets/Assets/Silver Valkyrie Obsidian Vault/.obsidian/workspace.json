@@ -1,0 +1,237 @@
+{
+  "main": {
+    "id": "8db178e0e84b3e91",
+    "type": "split",
+    "children": [
+      {
+        "id": "053eef9e0449112a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "03cc0ddd446304a8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Silver Valkyrie/Character_and_Art_Direction.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Character_and_Art_Direction"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "479d8f5b5f0fefca",
+    "type": "split",
+    "children": [
+      {
+        "id": "84dd5c5a085d4f7a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "06163d55fc2a9a28",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "9d908b2572f9bb69",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "4b3e69d330ce3492",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ad7df4364fef40e8",
+    "type": "split",
+    "children": [
+      {
+        "id": "f83cfb202f1c5583",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cbf9e536c06923ab",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Silver Valkyrie/Ice Trolls.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Ice Trolls"
+            }
+          },
+          {
+            "id": "776ccb0ac54be3d9",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Silver Valkyrie/Ice Trolls.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Ice Trolls"
+            }
+          },
+          {
+            "id": "c03197b99dc7dd0e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "0a25272cd3d4429b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Silver Valkyrie/Ice Trolls.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Ice Trolls"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-kanban:Create new board": false
+    }
+  },
+  "active": "03cc0ddd446304a8",
+  "lastOpenFiles": [
+    "Assets/Rflipper.png",
+    "Assets/Lflipper.png",
+    "Assets/pinball_SV-Sheet.png",
+    "Assets/pinball_SV.gif",
+    "Assets/pinball_SV.aseprite",
+    "Images/f7601203-ecf1-4dc1-ba24-d730e653027b.png",
+    "Assets/Stone background.png",
+    "Assets/Stone background.aseprite",
+    "Assets",
+    "New folder",
+    "Images/Pasted image 20250724233150.jpg",
+    "Images/Pasted image 20250726213248.jpg",
+    "Images/Pasted image 20250724233450.jpg",
+    "Images/Pasted image 20250725005754.jpg",
+    "Images/Pasted image 20250725005522.png",
+    "DMD Videos",
+    "Silver Valkyrie/Lighting and Effects.md",
+    "Silver Valkyrie/Character_and_Art_Direction.md",
+    "Silver Valkyrie/Sound_and_Music.md",
+    "Silver Valkyrie/Project_Overview.md",
+    "Silver Valkyrie/Playfield_Elements.md",
+    "Silver Valkyrie/Objectives_and_Modes.md",
+    "Silver Valkyrie/Design_Documents.md",
+    "Silver Valkyrie/Core_Gameplay_Loop.md",
+    "Untitled 2.base",
+    "Untitled 1.base",
+    "Untitled.base",
+    "Untitled.canvas",
+    "Silver Valkyrie/Character and Art Direction.md",
+    "Silver Valkyrie/UI and DMD Style.md",
+    "Silver Valkyrie/Sasha the Valkyrie.canvas",
+    "Silver Valkyrie/Enemies.canvas",
+    "Silver Valkyrie/DMD Sprite References.canvas",
+    "Silver Valkyrie/Core Gameplay Loop.md",
+    "Silver Valkyrie/Design Documents.md",
+    "Silver Valkyrie/DMD Text.md",
+    "Silver Valkyrie/Fonts.md",
+    "Silver Valkyrie/Ideas and Brainstorming.md",
+    "Silver Valkyrie/Master Slayer Mode.md",
+    "Silver Valkyrie/Objectives and Modes.md",
+    "Silver Valkyrie/Playfield Elements.md",
+    "Silver Valkyrie/Sasha Voice Lines.md",
+    "Silver Valkyrie/Sound FX.md",
+    "Untitled 3.base",
+    "Images",
+    "Silver Valkyrie/Mood Boards.md",
+    "Silver Valkyrie/Meta Files and Planning.md",
+    "Silver Valkyrie/Sketches.md",
+    "Silver Valkyrie/Shooter Lane.md",
+    "Silver Valkyrie/Silver Valkyrie.md",
+    "Untitled 1.canvas"
+  ]
+}
