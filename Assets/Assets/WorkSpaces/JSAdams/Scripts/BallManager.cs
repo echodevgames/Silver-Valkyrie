@@ -38,7 +38,7 @@ public class BallManager : MonoBehaviour
     private AnimationCurve spawnScaleEase =
         AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
 
-    private readonly HashSet<int> activeBallInstanceIds = new HashSet<int>();
+    private readonly List<GameObject> activeBalls = new List<GameObject>();
     private Coroutine refillRoutine;
 
     private bool hasStarted = false;
@@ -70,7 +70,7 @@ public class BallManager : MonoBehaviour
     {
         while (true)
         {
-            int missing = maxBallsOnTable - activeBallInstanceIds.Count;
+            int missing = maxBallsOnTable - activeBalls.Count;
 
             if (missing > 0)
             {
@@ -95,7 +95,13 @@ public class BallManager : MonoBehaviour
 
         GameObject ball = Instantiate(ballPrefab, spawnPoint.position, spawnPoint.rotation);
 
-        activeBallInstanceIds.Add(ball.GetInstanceID());
+        activeBalls.Add(ball);
+
+        // If this is the first ball, make it the primary follow target
+        if (activeBalls.Count == 1)
+        {
+            ZoneCameraManager.Instance.SetPrimaryBall(ball.transform);
+        }
 
         // Polish: hang + scale up before releasing physics
         StartCoroutine(SpawnHangAndScale(ball));
@@ -155,10 +161,16 @@ public class BallManager : MonoBehaviour
     {
         if (ball == null) return;
 
-        int id = ball.GetInstanceID();
-        activeBallInstanceIds.Remove(id);
+        bool wasPrimary = activeBalls.Count > 0 && activeBalls[0] == ball;
+
+        activeBalls.Remove(ball);
 
         Destroy(ball);
+
+        if (wasPrimary && activeBalls.Count > 0)
+        {
+            ZoneCameraManager.Instance.SetPrimaryBall(activeBalls[0].transform);
+        }
 
         StartCoroutine(DelayBeforeRefill());
     }
@@ -169,7 +181,7 @@ public class BallManager : MonoBehaviour
         // refill loop will notice and spawn
     }
 
-    public int GetActiveBallCount() => activeBallInstanceIds.Count;
+    public int GetActiveBallCount() => activeBalls.Count;
 
 
 }
