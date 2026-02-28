@@ -27,6 +27,7 @@ public class BallManager : MonoBehaviour
     [Header("Spawn Polish")]
     [Tooltip("How long the ball hangs in the hole before physics starts.")]
     [SerializeField] private float spawnHangDuration = 0.20f;
+    [SerializeField] private float gameStartSpawnDelay = 0.5f;
 
     [Tooltip("Starting scale while hanging (1 = normal size).")]
     [Range(0.1f, 1f)]
@@ -37,7 +38,7 @@ public class BallManager : MonoBehaviour
     private AnimationCurve spawnScaleEase =
         AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
 
-    private readonly HashSet<int> activeBallInstanceIds = new HashSet<int>();
+    private readonly List<GameObject> activeBalls = new List<GameObject>();
     private Coroutine refillRoutine;
 
     private bool hasStarted = false;
@@ -47,7 +48,10 @@ public class BallManager : MonoBehaviour
         if (hasStarted) return;
 
         hasStarted = true;
-        refillRoutine = StartCoroutine(RefillLoop());
+
+        // Instead of starting refill immediately,
+        // wait a short moment before the machine feeds the first ball
+        StartCoroutine(StartAfterDelay());
     }
 
     private void OnDisable()
@@ -55,12 +59,18 @@ public class BallManager : MonoBehaviour
         if (refillRoutine != null)
             StopCoroutine(refillRoutine);
     }
+    private IEnumerator StartAfterDelay()
+    {
+        // Premium subtle machine startup delay with inspector control
+        yield return new WaitForSeconds(gameStartSpawnDelay);
 
+        refillRoutine = StartCoroutine(RefillLoop());
+    }
     private IEnumerator RefillLoop()
     {
         while (true)
         {
-            int missing = maxBallsOnTable - activeBallInstanceIds.Count;
+            int missing = maxBallsOnTable - activeBalls.Count;
 
             if (missing > 0)
             {
@@ -85,7 +95,13 @@ public class BallManager : MonoBehaviour
 
         GameObject ball = Instantiate(ballPrefab, spawnPoint.position, spawnPoint.rotation);
 
-        activeBallInstanceIds.Add(ball.GetInstanceID());
+        activeBalls.Add(ball);
+
+        // If this is the first ball, make it the primary follow target
+        if (activeBalls.Count == 1)
+        {
+            ZoneCameraManager.Instance.SetPrimaryBall(ball.transform);
+        }
 
         // Polish: hang + scale up before releasing physics
         StartCoroutine(SpawnHangAndScale(ball));
@@ -145,10 +161,16 @@ public class BallManager : MonoBehaviour
     {
         if (ball == null) return;
 
-        int id = ball.GetInstanceID();
-        activeBallInstanceIds.Remove(id);
+        bool wasPrimary = activeBalls.Count > 0 && activeBalls[0] == ball;
+
+        activeBalls.Remove(ball);
 
         Destroy(ball);
+
+        if (wasPrimary && activeBalls.Count > 0)
+        {
+            ZoneCameraManager.Instance.SetPrimaryBall(activeBalls[0].transform);
+        }
 
         StartCoroutine(DelayBeforeRefill());
     }
@@ -159,7 +181,9 @@ public class BallManager : MonoBehaviour
         // refill loop will notice and spawn
     }
 
-    public int GetActiveBallCount() => activeBallInstanceIds.Count;
+    public int GetActiveBallCount() => activeBalls.Count;
+
+
 }
 
 // ----- BallManager.cs END -----
