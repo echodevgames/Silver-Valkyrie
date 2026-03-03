@@ -10,11 +10,26 @@ using System.Collections;
 public class GameStateManager : MonoBehaviour
 {
 
-    [SerializeField] private BallManager ballManager;
+    public enum GameMode
+    {
+        Default,
+        MultiballTest,
+    }
+
+
+    public GameMode CurrentMode { get; private set; }
+    [Header ("UI Elements")]
     [SerializeField] private StartUIController startUI;
+
+    [Header ("State Management")]
+    [SerializeField] private GameMode startingMode = GameMode.Default;
+
+    [Header ("Ball Manager")]
+    [SerializeField] private BallManager ballManager;
     public static GameStateManager Instance { get; private set; }
 
     private bool gameStarted = false;
+    public bool IsGameRunning => gameStarted && Time.timeScale > 0f;
 
     private void Awake()
     {
@@ -29,6 +44,7 @@ public class GameStateManager : MonoBehaviour
 
     private void Start()
     {
+        CurrentMode = startingMode;
         PauseGame();
     }
 
@@ -87,6 +103,16 @@ public class GameStateManager : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    public void SetModeMultiball()
+    {
+        CurrentMode = GameMode.MultiballTest;
+    }
+
+    public void SetModeDefault()
+    {
+        CurrentMode = GameMode.Default;
     }
 }
 

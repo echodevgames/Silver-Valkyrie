@@ -1,6 +1,4 @@
-
 // ----- BallManager.cs START -----
-
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,23 +9,20 @@ public class BallManager : MonoBehaviour
     [SerializeField] private GameObject ballPrefab;
     [SerializeField] private Transform spawnPoint;
 
+    [Header("Gate")]
+    [SerializeField] private TroughGate troughGate;
+
     [Header("Ball Limits")]
     [SerializeField] private int maxBallsOnTable = 3;
 
     [Header("Timing")]
-    [Tooltip("How often we attempt to fill missing balls (while under cap).")]
     [SerializeField] private float refillCheckInterval = 0.5f;
-
-    [Tooltip("Delay after a drain before a replacement spawns.")]
-    [SerializeField] private float respawnDelayAfterDrain = 1.0f;
-
-    [Tooltip("Delay between spawns when filling multiple missing balls.")]
     [SerializeField] private float staggerSpawnDelay = 0.35f;
+    [SerializeField] private float gameStartSpawnDelay = 0.5f;
 
     [Header("Spawn Polish")]
     [Tooltip("How long the ball hangs in the hole before physics starts.")]
     [SerializeField] private float spawnHangDuration = 0.20f;
-    [SerializeField] private float gameStartSpawnDelay = 0.5f;
 
     [Tooltip("Starting scale while hanging (1 = normal size).")]
     [Range(0.1f, 1f)]
@@ -35,22 +30,18 @@ public class BallManager : MonoBehaviour
 
     [Tooltip("Extra little ease curve while scaling up.")]
     [SerializeField]
-    private AnimationCurve spawnScaleEase =
-        AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
+    private AnimationCurve spawnScaleEase = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
 
-    private readonly List<GameObject> activeBalls = new List<GameObject>();
+    private readonly List<GameObject> activeBalls = new();
+    private GameObject primaryBall;
     private Coroutine refillRoutine;
-
     private bool hasStarted = false;
 
     public void StartSpawning()
     {
         if (hasStarted) return;
-
         hasStarted = true;
 
-        // Instead of starting refill immediately,
-        // wait a short moment before the machine feeds the first ball
         StartCoroutine(StartAfterDelay());
     }
 
@@ -59,13 +50,13 @@ public class BallManager : MonoBehaviour
         if (refillRoutine != null)
             StopCoroutine(refillRoutine);
     }
+
     private IEnumerator StartAfterDelay()
     {
-        // Premium subtle machine startup delay with inspector control
         yield return new WaitForSeconds(gameStartSpawnDelay);
-
         refillRoutine = StartCoroutine(RefillLoop());
     }
+
     private IEnumerator RefillLoop()
     {
         while (true)
@@ -89,22 +80,102 @@ public class BallManager : MonoBehaviour
     {
         if (ballPrefab == null || spawnPoint == null)
         {
-            Debug.LogError("[BallManager] Missing ballPrefab or spawnPoint reference.");
+            Debug.LogError("[BallManager] Missing ballPrefab or spawnPoint.");
             return;
         }
 
         GameObject ball = Instantiate(ballPrefab, spawnPoint.position, spawnPoint.rotation);
 
+        BallState state = ball.GetComponent<BallState>();
+        if (state != null)
+            state.SetState(BallState.State.InTrough);
+
         activeBalls.Add(ball);
 
-        // If this is the first ball, make it the primary follow target
-        if (activeBalls.Count == 1)
+        // Restore hang effect
+        StartCoroutine(SpawnHangAndScale(ball));
+
+        if (primaryBall == null)
         {
+            SetPrimaryBall(ball);
+        }
+    }
+
+    private void SetPrimaryBall(GameObject ball)
+    {
+        primaryBall = ball;
+
+        if (ZoneCameraManager.Instance != null)
             ZoneCameraManager.Instance.SetPrimaryBall(ball.transform);
+
+        BallState state = ball.GetComponent<BallState>();
+        if (state != null)
+        {
+            // Reset primary lifecycle to trough until it exits via ReleaseTrigger
+            state.SetState(BallState.State.InTrough);
+
+            // Avoid double-subscribe if something calls SetPrimaryBall twice
+            state.OnStateChanged -= HandlePrimaryBallStateChanged;
+            state.OnStateChanged += HandlePrimaryBallStateChanged;
+
+            // Apply immediately
+            HandlePrimaryBallStateChanged(state.CurrentState);
+        }
+        else
+        {
+            // If there's no BallState, safest is to keep the gate closed
+            troughGate.ForceClose();
+        }
+    }
+
+    private void HandlePrimaryBallStateChanged(BallState.State newState)
+    {
+        switch (newState)
+        {
+            case BallState.State.InTrough:
+                troughGate.ForceOpen();
+                break;
+
+            case BallState.State.InPlunger:
+            case BallState.State.InPlayfield:
+                troughGate.ForceClose();
+                break;
+
+            case BallState.State.Drained:
+                troughGate.ForceOpen();
+                break;
+        }
+    }
+
+    public void BallDrained(GameObject ball)
+    {
+        if (ball == null) return;
+
+        bool wasPrimary = (ball == primaryBall);
+
+        BallState oldState = ball.GetComponent<BallState>();
+        if (oldState != null)
+        {
+            // optional but consistent
+            oldState.SetState(BallState.State.Drained);
+            oldState.OnStateChanged -= HandlePrimaryBallStateChanged;
         }
 
-        // Polish: hang + scale up before releasing physics
-        StartCoroutine(SpawnHangAndScale(ball));
+        activeBalls.Remove(ball);
+        Destroy(ball);
+
+        if (wasPrimary)
+        {
+            if (activeBalls.Count > 0)
+            {
+                SetPrimaryBall(activeBalls[0]);
+            }
+            else
+            {
+                primaryBall = null;
+                troughGate.ForceClose();
+            }
+        }
     }
 
     private IEnumerator SpawnHangAndScale(GameObject ball)
@@ -113,7 +184,6 @@ public class BallManager : MonoBehaviour
 
         Rigidbody2D rb = ball.GetComponent<Rigidbody2D>();
 
-        // Freeze physics during hang so it doesn't drift or bounce
         if (rb != null)
         {
             rb.linearVelocity = Vector2.zero;
@@ -131,10 +201,9 @@ public class BallManager : MonoBehaviour
 
             t += Time.deltaTime;
             float normalized = (spawnHangDuration <= 0f) ? 1f : Mathf.Clamp01(t / spawnHangDuration);
+            float eased = (spawnScaleEase != null) ? spawnScaleEase.Evaluate(normalized) : normalized;
 
-            float eased = spawnScaleEase != null ? spawnScaleEase.Evaluate(normalized) : normalized;
-
-            ball.transform.position = spawnPoint.position; // stay locked to the hole
+            ball.transform.position = spawnPoint.position;
             ball.transform.localScale = Vector3.LerpUnclamped(startScale, originalScale, eased);
 
             yield return null;
@@ -142,48 +211,22 @@ public class BallManager : MonoBehaviour
 
         if (ball == null) yield break;
 
-        // Ensure final values
         ball.transform.position = spawnPoint.position;
         ball.transform.localScale = originalScale;
 
-        // Release physics
         if (rb != null)
-        {
             rb.simulated = true;
-        }
     }
 
-    /// <summary>
-    /// Called by Drain when a ball enters the drain zone.
-    /// Removes it and schedules a delayed refill (handled by the refill loop).
-    /// </summary>
-    public void BallDrained(GameObject ball)
+    public void DebugDrainPrimaryBall()
     {
-        if (ball == null) return;
-
-        bool wasPrimary = activeBalls.Count > 0 && activeBalls[0] == ball;
-
-        activeBalls.Remove(ball);
-
-        Destroy(ball);
-
-        if (wasPrimary && activeBalls.Count > 0)
+        if (primaryBall == null)
         {
-            ZoneCameraManager.Instance.SetPrimaryBall(activeBalls[0].transform);
+            Debug.Log("No primary ball to drain.");
+            return;
         }
 
-        StartCoroutine(DelayBeforeRefill());
+        BallDrained(primaryBall);
     }
-
-    private IEnumerator DelayBeforeRefill()
-    {
-        yield return new WaitForSeconds(respawnDelayAfterDrain);
-        // refill loop will notice and spawn
-    }
-
-    public int GetActiveBallCount() => activeBalls.Count;
-
-
 }
-
 // ----- BallManager.cs END -----

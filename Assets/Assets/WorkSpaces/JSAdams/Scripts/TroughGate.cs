@@ -1,15 +1,13 @@
 
 //----- TroughGate.cs START -----
-
 using UnityEngine;
 using System.Collections;
 
 public class TroughGate : MonoBehaviour
 {
     [SerializeField] private Transform gateVisual;
-    [Header("Movement")]
     [SerializeField] private float openOffsetY = 1f;
-    [SerializeField] private float moveSpeed = 8f;
+    [SerializeField] private float moveSpeed = 20f;
 
     private Vector3 closedPosition;
     private Vector3 openPosition;
@@ -22,18 +20,14 @@ public class TroughGate : MonoBehaviour
         closedPosition = gateVisual.localPosition;
         openPosition = closedPosition + Vector3.up * openOffsetY;
     }
-    private void Start()
-    {
-        OpenGate();
-    }
 
-    public void OpenGate()
+    public void ForceOpen()
     {
         if (isOpen || isMoving) return;
         StartCoroutine(MoveGate(openPosition));
     }
 
-    public void CloseGate()
+    public void ForceClose()
     {
         if (!isOpen || isMoving) return;
         StartCoroutine(MoveGate(closedPosition));
@@ -55,21 +49,8 @@ public class TroughGate : MonoBehaviour
         }
 
         gateVisual.localPosition = target;
-
         isOpen = target == openPosition;
         isMoving = false;
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        Debug.Log("Trigger exit detected");
-
-        if (!isOpen) return;
-
-        if (other.CompareTag("Ball"))
-        {
-            Debug.Log("Ball exited trigger — closing gate");
-            CloseGate();
-        }
     }
 }
 //----- TroughGate.cs END -----
