@@ -1,3 +1,7 @@
+
+// ----- ZoneCameraManager.CS START -----
+
+
 using UnityEngine;
 using Unity.Cinemachine;
 
@@ -62,3 +66,5 @@ public enum Zone
     Middle,
     Upper
 }
+
+// ----- ZoneCameraManager.CS END -----

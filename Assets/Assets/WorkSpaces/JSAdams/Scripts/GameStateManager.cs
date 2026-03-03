@@ -1,14 +1,17 @@
 
 // ----- GameStateManager.cs START -----
 
+using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class GameStateManager : MonoBehaviour
 {
 
     [SerializeField] private BallManager ballManager;
+    [SerializeField] private StartUIController startUI;
     public static GameStateManager Instance { get; private set; }
 
     private bool gameStarted = false;
@@ -32,10 +35,13 @@ public class GameStateManager : MonoBehaviour
     private void Update()
     {
         // Press Any Key to Start
-        if (!gameStarted && Keyboard.current.anyKey.wasPressedThisFrame ||
-            Gamepad.current != null && Gamepad.current.allControls.Any(c => c.IsPressed()))
+        if (!gameStarted &&
+            (
+                Keyboard.current.anyKey.wasPressedThisFrame ||
+                (Gamepad.current != null && Gamepad.current.allControls.Any(c => c.IsPressed()))
+            ))
         {
-            StartGame();
+            BeginGameSequence();
         }
 
         // ESC to Quit
@@ -45,9 +51,21 @@ public class GameStateManager : MonoBehaviour
         }
     }
 
-    private void StartGame()
+    private void BeginGameSequence()
     {
+        if (gameStarted) return;
+
         gameStarted = true;
+        StartCoroutine(GameStartRoutine());
+    }
+
+
+    private IEnumerator GameStartRoutine()
+    {
+        startUI.StopBlinking();
+
+        yield return startUI.PlayCountdown();
+
         Time.timeScale = 1f;
 
         if (ballManager != null)
@@ -55,7 +73,6 @@ public class GameStateManager : MonoBehaviour
 
         Debug.Log("Game Started");
     }
-
     private void PauseGame()
     {
         Time.timeScale = 0f;
