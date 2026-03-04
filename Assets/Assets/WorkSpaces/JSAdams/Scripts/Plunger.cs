@@ -51,6 +51,8 @@ public class Plunger : MonoBehaviour
 
     private void StartPull()
     {
+        if (!GameStateManager.Instance.IsGameRunning) return;
+
         isPulling = true;
         isSlamming = false;
         isSettling = false;
@@ -59,6 +61,8 @@ public class Plunger : MonoBehaviour
 
     private void Release()
     {
+        if (!GameStateManager.Instance.IsGameRunning) return;
+
         isPulling = false;
         isSlamming = true;
 
