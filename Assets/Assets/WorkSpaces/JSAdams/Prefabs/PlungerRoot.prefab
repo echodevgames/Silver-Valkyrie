@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5433107272153371382}
   - component: {fileID: 8312315690203957148}
   - component: {fileID: 5743787798068191899}
-  - component: {fileID: 3751541435556981158}
+  - component: {fileID: 8713675081004173476}
   m_Layer: 0
   m_Name: RamSprite
   m_TagString: Untagged
@@ -120,8 +120,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &3751541435556981158
-CapsuleCollider2D:
+--- !u!61 &8713675081004173476
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -155,8 +155,17 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.19999999, y: 1.2499999}
-  m_Direction: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.2, y: 1.25}
+    newSize: {x: 0.2, y: 1.25}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.2, y: 1.25}
+  m_EdgeRadius: 0
 --- !u!1 &4626218004082292066
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +245,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 6
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4685639186716384540, guid: 36a2ddf590850c2438a6ce5a5e4d3e02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -297,7 +306,7 @@ MonoBehaviour:
   ramRb: {fileID: 0}
   housing: {fileID: 6326819779417256346}
   launchAction: {fileID: 7941719172869085890, guid: 4ed380db7ec924c4fb0ebe14f0732fc5, type: 3}
-  maxPullDistance: 1.5
+  maxPullDistance: 3
   pullDuration: 0.6
   slamSpeed: 30
   overshootAmount: 0.15

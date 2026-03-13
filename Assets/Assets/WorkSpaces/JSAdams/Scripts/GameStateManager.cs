@@ -1,17 +1,35 @@
 
 // ----- GameStateManager.cs START -----
 
+using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class GameStateManager : MonoBehaviour
 {
 
+    public enum GameMode
+    {
+        Default,
+        MultiballTest,
+    }
+
+
+    public GameMode CurrentMode { get; private set; }
+    [Header ("UI Elements")]
+    [SerializeField] private StartUIController startUI;
+
+    [Header ("State Management")]
+    [SerializeField] private GameMode startingMode = GameMode.Default;
+
+    [Header ("Ball Manager")]
     [SerializeField] private BallManager ballManager;
     public static GameStateManager Instance { get; private set; }
 
     private bool gameStarted = false;
+    public bool IsGameRunning => gameStarted && Time.timeScale > 0f;
 
     private void Awake()
     {
@@ -26,16 +44,20 @@ public class GameStateManager : MonoBehaviour
 
     private void Start()
     {
+        CurrentMode = startingMode;
         PauseGame();
     }
 
     private void Update()
     {
         // Press Any Key to Start
-        if (!gameStarted && Keyboard.current.anyKey.wasPressedThisFrame ||
-            Gamepad.current != null && Gamepad.current.allControls.Any(c => c.IsPressed()))
+        if (!gameStarted &&
+            (
+                Keyboard.current.anyKey.wasPressedThisFrame ||
+                (Gamepad.current != null && Gamepad.current.allControls.Any(c => c.IsPressed()))
+            ))
         {
-            StartGame();
+            BeginGameSequence();
         }
 
         // ESC to Quit
@@ -45,9 +67,21 @@ public class GameStateManager : MonoBehaviour
         }
     }
 
-    private void StartGame()
+    private void BeginGameSequence()
     {
+        if (gameStarted) return;
+
         gameStarted = true;
+        StartCoroutine(GameStartRoutine());
+    }
+
+
+    private IEnumerator GameStartRoutine()
+    {
+        startUI.StopBlinking();
+
+        yield return startUI.PlayCountdown();
+
         Time.timeScale = 1f;
 
         if (ballManager != null)
@@ -55,7 +89,6 @@ public class GameStateManager : MonoBehaviour
 
         Debug.Log("Game Started");
     }
-
     private void PauseGame()
     {
         Time.timeScale = 0f;
@@ -70,6 +103,16 @@ public class GameStateManager : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    public void SetModeMultiball()
+    {
+        CurrentMode = GameMode.MultiballTest;
+    }
+
+    public void SetModeDefault()
+    {
+        CurrentMode = GameMode.Default;
     }
 }
 
