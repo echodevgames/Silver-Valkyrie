@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 708f07107e4f3094e9d59de86d509679
+guid: cd31790d212eeb34a8f721bd9126b34f
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Tile test
+  - name: Dwarf-SV
     originalName: 
-    pivot: {x: 0.17891376, y: -1}
+    pivot: {x: 0.5106383, y: -0.016129032}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 313
-      height: 256
-    spriteID: 2532000a49e5009449de065e10cf5f81
+      width: 47
+      height: 62
+    spriteID: 858c432a381ed164ea06c7cdb482b899
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2996643954
+      value0: 517556828
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Tile test
+    name: Dwarf-SV
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Tile test
+    - name: Dwarf-SV
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 264
-        y: 256
-        width: 313
-        height: 256
-      spriteId: 2532000a49e5009449de065e10cf5f81
+        x: 8
+        y: 1
+        width: 47
+        height: 62
+      spriteId: 858c432a381ed164ea06c7cdb482b899
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -181,5 +181,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 640, y: 640}
-  previousTextureSize: {x: 512, y: 512}
+  canvasSize: {x: 64, y: 64}
+  previousTextureSize: {x: 64, y: 128}
