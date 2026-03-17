@@ -29,6 +29,12 @@ public class Flipper : MonoBehaviour
     [Tooltip("Degrees per second when returning to rest.")]
     [SerializeField] private float returnSpeed = 720f;
 
+    [Header("Audio")]
+    [Tooltip("Sound played when the flipper engages (button pressed).")]
+    [SerializeField] private AudioClip engageSound;
+    [Range(0f, 1f)]
+    [SerializeField] private float engageVolume = 0.9f;
+
     private Rigidbody2D rb;
     private SilverValkyrieInput input;
     private InputAction flipAction;
@@ -68,7 +74,11 @@ public class Flipper : MonoBehaviour
     }
 
     /// <summary>Called when the flip button is pressed.</summary>
-    private void OnPressed(InputAction.CallbackContext ctx) => isPressed = true;
+    private void OnPressed(InputAction.CallbackContext ctx)
+    {
+        isPressed = true;
+        AudioService.Instance?.PlayOneShot(engageSound, transform.position, engageVolume);
+    }
 
     /// <summary>Called when the flip button is released.</summary>
     private void OnReleased(InputAction.CallbackContext ctx) => isPressed = false;

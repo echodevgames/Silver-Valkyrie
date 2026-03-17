@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 /// <summary>
-/// Singleton service that plays surface hit sounds.
+/// Singleton service that plays surface hit sounds and manages the ambient machine hum.
 /// If a SurfaceMaterialData has no AudioClip assigned, a procedural placeholder
 /// tone is generated and played instead — distinct per SurfaceType.
+/// The machine hum starts automatically and loops forever; adjust Hum Volume in the Inspector.
 /// </summary>
 public class AudioService : MonoBehaviour
 {
@@ -24,8 +26,20 @@ public class AudioService : MonoBehaviour
             { SurfaceMaterialData.SurfaceType.Custom, (440f,  12f, 0.15f) }, // neutral tone
         };
 
+    [Header("Ambient Hum")]
+    [Tooltip("The constant electrical hum of the machine. Set to 0 to silence it.")]
+    [Range(0f, 1f)]
+    [SerializeField] private float humVolume = 0.18f;
+
+    [Header("Audio Mixer Groups")]
+    [Tooltip("Assign the SFX group from SilverValkyrieAudioMixer.")]
+    [SerializeField] private AudioMixerGroup sfxGroup;
+    [Tooltip("Assign the Ambience group from SilverValkyrieAudioMixer.")]
+    [SerializeField] private AudioMixerGroup ambienceGroup;
+
     private Dictionary<SurfaceMaterialData.SurfaceType, AudioClip> proceduralClips;
     private AudioSource audioSource;
+    private AudioSource humSource;
 
     private void Awake()
     {
@@ -33,10 +47,21 @@ public class AudioService : MonoBehaviour
         Instance = this;
         BuildProceduralClips();
 
-        // 2D audio source — spatialBlend 0 means distance has no effect on volume.
-        audioSource             = gameObject.AddComponent<AudioSource>();
-        audioSource.spatialBlend = 0f;
-        audioSource.playOnAwake  = false;
+        // 2D one-shot source for impact sounds.
+        audioSource                    = gameObject.AddComponent<AudioSource>();
+        audioSource.spatialBlend       = 0f;
+        audioSource.playOnAwake        = false;
+        audioSource.outputAudioMixerGroup = sfxGroup;
+
+        // Dedicated looping source for the ambient machine hum.
+        humSource                    = gameObject.AddComponent<AudioSource>();
+        humSource.spatialBlend       = 0f;
+        humSource.playOnAwake        = false;
+        humSource.loop               = true;
+        humSource.volume             = humVolume;
+        humSource.clip               = BuildHumClip();
+        humSource.outputAudioMixerGroup = ambienceGroup;
+        humSource.Play();
     }
 
     private void OnDestroy()
@@ -92,6 +117,33 @@ public class AudioService : MonoBehaviour
         }
 
         AudioClip clip = AudioClip.Create($"Procedural_{clipName}", sampleCount, 1, SampleRate, false);
+        clip.SetData(data, 0);
+        return clip;
+    }
+
+    /// <summary>
+    /// Generates a seamlessly looping 1-second clip that mimics the electrical hum
+    /// of a pinball machine transformer: 60 Hz fundamental plus harmonics.
+    /// A 1-second length ensures every harmonic completes an exact whole number of
+    /// cycles so the loop point is completely click-free.
+    /// </summary>
+    private static AudioClip BuildHumClip()
+    {
+        int sampleCount = SampleRate; // 1 second = perfect loop point for 60 Hz family
+        float[] data = new float[sampleCount];
+
+        for (int i = 0; i < sampleCount; i++)
+        {
+            float t      = i / (float)SampleRate;
+            float sample = 0f;
+            sample += 0.50f * Mathf.Sin(2f * Mathf.PI *  60f * t); // fundamental
+            sample += 0.30f * Mathf.Sin(2f * Mathf.PI * 120f * t); // 2nd harmonic
+            sample += 0.15f * Mathf.Sin(2f * Mathf.PI * 180f * t); // 3rd harmonic
+            sample += 0.07f * Mathf.Sin(2f * Mathf.PI * 240f * t); // 4th harmonic
+            data[i] = sample * 0.35f; // scale to reasonable amplitude before volume is applied
+        }
+
+        AudioClip clip = AudioClip.Create("MachineHum", sampleCount, 1, SampleRate, false);
         clip.SetData(data, 0);
         return clip;
     }
