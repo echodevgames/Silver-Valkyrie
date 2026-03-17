@@ -35,6 +35,14 @@ public class Plunger : MonoBehaviour
     [Header("Housing Shake")]
     [SerializeField] private float shakeStrength = 0.06f;
     [SerializeField] private float shakeDuration = 0.12f;
+    [Tooltip("Max screen shake intensity at full charge. Scales linearly with pull distance.")]
+    [SerializeField] private float launchScreenShakeIntensity = 0.35f;
+
+    [Header("Audio")]
+    [Tooltip("Sound played when the plunger fires. Volume scales with charge ratio.")]
+    [SerializeField] private AudioClip launchSound;
+    [Range(0f, 1f)]
+    [SerializeField] private float launchVolume = 0.9f;
 
     private PlungerState state = PlungerState.Idle;
     private Vector2 restPosition;
@@ -82,11 +90,20 @@ public class Plunger : MonoBehaviour
     private void OnPullReleased(InputAction.CallbackContext ctx)
     {
         if (state != PlungerState.Pulling) return;
+
+        float chargeRatio = Mathf.Clamp01(pullTimer / pullDuration);
+
         state = PlungerState.Slamming;
 
         // Switch to Dynamic so the ram delivers a real physics impulse to the ball.
         ramRb.bodyType = RigidbodyType2D.Dynamic;
         ramRb.linearVelocity = Vector2.up * launchSpeed;
+
+        // Screen shake scales with how far the plunger was pulled.
+        ScreenShakeService.Instance?.Shake(launchScreenShakeIntensity * chargeRatio);
+
+        // Volume also scales with charge so a light tap sounds softer than a full pull.
+        AudioService.Instance?.PlayOneShot(launchSound, transform.position, launchVolume * chargeRatio);
 
         StartCoroutine(ShakeHousing());
     }

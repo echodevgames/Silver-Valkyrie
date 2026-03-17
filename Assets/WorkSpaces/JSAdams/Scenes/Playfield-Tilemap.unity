@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 647648037}
   - component: {fileID: 647648036}
   - component: {fileID: 647648035}
+  - component: {fileID: 647648038}
   m_Layer: 0
   m_Name: Whitewood
   m_TagString: Untagged
@@ -6865,7 +6866,7 @@ CompositeCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: fbd61f9eb0c9536479f7af7f1630fbb8, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -7764,7 +7765,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: fbd61f9eb0c9536479f7af7f1630fbb8, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -7819,6 +7820,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &647648038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647648031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb4b504b6763ae7459ed1c579e3d2942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SurfaceContact
+  surfaceMaterial: {fileID: 11400000, guid: 576b4004f7a9c184eb38d767f950149a, type: 2}
 --- !u!1 &727327390 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5967731868461210588, guid: e9adbb4cbe41c0d43a77f17b44380154, type: 3}
@@ -7846,6 +7860,9 @@ MonoBehaviour:
   settleFrequency: 14
   shakeStrength: 0.06
   shakeDuration: 0.12
+  launchScreenShakeIntensity: 0.35
+  launchSound: {fileID: 8300000, guid: 2839bc0cc5393ba4694216241be03935, type: 3}
+  launchVolume: 0.9
 --- !u!1 &929640166
 GameObject:
   m_ObjectHideFlags: 0
@@ -8113,6 +8130,102 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5743787798068191899, guid: e9adbb4cbe41c0d43a77f17b44380154, type: 3}
   m_PrefabInstance: {fileID: 1148236961}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1232890658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1232890661}
+  - component: {fileID: 1232890660}
+  - component: {fileID: 1232890659}
+  m_Layer: 0
+  m_Name: BallDrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1232890659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232890658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44bed1ad16ce4df4cacdf88265b13bb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallDrain
+  shakeIntensity: 0.8
+  vibrationIntensity: 0.9
+  vibrationDuration: 0.4
+  drainSound: {fileID: 8300000, guid: bdaf9662ad7356948ae3138d3819031d, type: 3}
+  drainVolume: 1
+--- !u!61 &1232890660
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232890658}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 80, y: 2}
+  m_EdgeRadius: 0
+--- !u!4 &1232890661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232890658}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5, y: -14, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1338973636 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6326819779417256346, guid: e9adbb4cbe41c0d43a77f17b44380154, type: 3}
@@ -47553,6 +47666,91 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66f3d2a5afaba554583b85ad6f98abbf, type: 3}
+--- !u!1 &1544399846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1544399849}
+  - component: {fileID: 1544399848}
+  - component: {fileID: 1544399847}
+  - component: {fileID: 1544399851}
+  - component: {fileID: 1544399850}
+  m_Layer: 0
+  m_Name: FeedbackServices
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1544399847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544399846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd8d61431b5f1444b52f6b98e6606a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VibrationService
+--- !u!114 &1544399848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544399846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcdb01b6aa384b14db9f6bb2d29b70d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScreenShakeService
+  maxMagnitude: 0.25
+  dampingSpeed: 10
+--- !u!4 &1544399849
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544399846}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1544399850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544399846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bed19126545e9e844bcfeb76498e32d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioService
+--- !u!114 &1544399851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544399846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3d2c3b9fcee5cb48b8031c1f5ca7283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreService
 --- !u!4 &1616581804 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2960152423276968261, guid: 66f3d2a5afaba554583b85ad6f98abbf, type: 3}
@@ -47571,6 +47769,7 @@ GameObject:
   - component: {fileID: 1997765981}
   - component: {fileID: 1997765980}
   - component: {fileID: 1997765984}
+  - component: {fileID: 1997765985}
   m_Layer: 0
   m_Name: LeftFlipper
   m_TagString: Untagged
@@ -47605,7 +47804,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9dec54b78dee7094b915c9f25b8cae99, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -47668,7 +47867,7 @@ Transform:
   m_GameObject: {fileID: 1997765979}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.42, y: -8.57, z: 0}
+  m_LocalPosition: {x: -5, y: -10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47733,6 +47932,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1997765985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997765979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb4b504b6763ae7459ed1c579e3d2942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SurfaceContact
+  surfaceMaterial: {fileID: 11400000, guid: 9e23cc69680a7b24d9d97518cb2a5d97, type: 2}
 --- !u!1 &2101743567
 GameObject:
   m_ObjectHideFlags: 0
@@ -47746,6 +47958,7 @@ GameObject:
   - component: {fileID: 2101743569}
   - component: {fileID: 2101743568}
   - component: {fileID: 2101743572}
+  - component: {fileID: 2101743573}
   m_Layer: 0
   m_Name: RightFlipper
   m_TagString: Untagged
@@ -47780,7 +47993,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9dec54b78dee7094b915c9f25b8cae99, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -47843,7 +48056,7 @@ Transform:
   m_GameObject: {fileID: 2101743567}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.07, y: -8.55, z: 0}
+  m_LocalPosition: {x: 2, y: -10, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47908,6 +48121,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2101743573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101743567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb4b504b6763ae7459ed1c579e3d2942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SurfaceContact
+  surfaceMaterial: {fileID: 11400000, guid: 9e23cc69680a7b24d9d97518cb2a5d97, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -47918,3 +48144,5 @@ SceneRoots:
   - {fileID: 1148236961}
   - {fileID: 1997765983}
   - {fileID: 2101743571}
+  - {fileID: 1544399849}
+  - {fileID: 1232890661}

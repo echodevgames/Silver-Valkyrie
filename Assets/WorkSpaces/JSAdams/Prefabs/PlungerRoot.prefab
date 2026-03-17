@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8312315690203957148}
   - component: {fileID: 5743787798068191899}
   - component: {fileID: 8713675081004173476}
+  - component: {fileID: 5084217799132871275}
   m_Layer: 0
   m_Name: RamSprite
   m_TagString: Untagged
@@ -130,7 +131,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0a68df5c57fe1264fbf92943c707c115, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -166,6 +167,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.2, y: 1.25}
   m_EdgeRadius: 0
+--- !u!114 &5084217799132871275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281729566712126129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb4b504b6763ae7459ed1c579e3d2942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SurfaceContact
+  surfaceMaterial: {fileID: 11400000, guid: 81b934f6086d8664181d142470a40a1d, type: 2}
 --- !u!1 &4626218004082292066
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +319,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Plunger
   ramRb: {fileID: 5743787798068191899}
   housingTransform: {fileID: 6326819779417256346}
-  launchAction: {fileID: 7941719172869085890, guid: 4ed380db7ec924c4fb0ebe14f0732fc5, type: 3}
   maxPullDistance: 3
   pullDuration: 0.6
   launchSpeed: 35
@@ -314,3 +327,6 @@ MonoBehaviour:
   settleFrequency: 14
   shakeStrength: 0.06
   shakeDuration: 0.12
+  launchScreenShakeIntensity: 0.35
+  launchSound: {fileID: 0}
+  launchVolume: 0.9

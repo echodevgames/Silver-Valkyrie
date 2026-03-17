@@ -6,9 +6,9 @@ PhysicsMaterial2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Pinball_Ball
+  m_Name: Stone
   serializedVersion: 2
-  friction: 0
-  bounciness: 0
-  m_FrictionCombine: 3
+  friction: 0.3
+  bounciness: 0.2
+  m_FrictionCombine: 0
   m_BounceCombine: 4

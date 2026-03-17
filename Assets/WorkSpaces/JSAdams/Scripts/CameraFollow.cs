@@ -22,6 +22,12 @@ public class CameraFollow : MonoBehaviour
     private Bounds worldBounds;
     private bool boundsReady;
 
+    /// <summary>
+    /// Applied on top of the clamped follow position each frame.
+    /// Set by ScreenShakeService — zeroed automatically when the shake decays.
+    /// </summary>
+    public Vector3 ShakeOffset { get; set; }
+
     private void Awake()
     {
         cam = GetComponent<Camera>();
@@ -62,7 +68,7 @@ public class CameraFollow : MonoBehaviour
         if (boundsReady)
             desired = ClampToConfiner(desired);
 
-        transform.position = Vector3.Lerp(transform.position, desired, followSpeed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, desired, followSpeed * Time.deltaTime) + ShakeOffset;
     }
 
     /// <summary>

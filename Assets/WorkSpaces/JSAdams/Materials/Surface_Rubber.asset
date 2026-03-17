@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e4ad33911d6de4fbb03ba4f9c89917, type: 3}
+  m_Name: Surface_Rubber
+  m_EditorClassIdentifier: Assembly-CSharp::SurfaceMaterialData
+  surfaceType: 0
+  physicsMaterial: {fileID: 6200000, guid: 9dec54b78dee7094b915c9f25b8cae99, type: 2}
+  shakeIntensity: 0.4
+  bounceBoostScale: 5
+  vibrationIntensity: 0.6
+  vibrationDuration: 0.08
+  hitSound: {fileID: 8300000, guid: 1f5f203b89a579941943626843c6810a, type: 3}
+  hitVolume: 0.8
+  scoreValue: 10
