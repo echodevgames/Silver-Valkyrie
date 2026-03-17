@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class GameDirector : MonoBehaviour
 {
+    /// <summary>Scene-scoped singleton. Valid from Awake until the scene is unloaded.</summary>
+    public static GameDirector Instance { get; private set; }
+
     [Header("Ball Spawning")]
     [Tooltip("The Ball prefab to instantiate on respawn.")]
     [SerializeField] private GameObject ballPrefab;
@@ -21,6 +24,11 @@ public class GameDirector : MonoBehaviour
     [Header("Game Over")]
     [Tooltip("Seconds to wait after the last ball drains before reloading the scene.")]
     [SerializeField] private float gameOverDelay = 3f;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void OnEnable()
     {
@@ -58,7 +66,8 @@ public class GameDirector : MonoBehaviour
         yield return new WaitForSecondsRealtime(gameOverDelay);
 
         Debug.Log("[GameDirector] Game frozen. Press R to restart.");
-        Time.timeScale = 0f;
+        Time.timeScale      = 0f;
+        AudioListener.pause = true;
     }
 
     /// <summary>Spawns a ball at the configured spawn point. Also callable directly from cheats.</summary>
