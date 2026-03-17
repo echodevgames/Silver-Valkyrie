@@ -53,6 +53,9 @@ public class CheatController : MonoBehaviour
             BallLifeService.Instance?.AddBalls(1);
         }
 
+        // H — toggle cheat sheet overlay (handled by CheatSheetUI itself,
+        //     but documented here so all keys are visible in one place when debugging)
+
         // R — restart (also unfreeze in case game is in game over freeze state)
         if (keyboard.rKey.wasPressedThisFrame)
         {
