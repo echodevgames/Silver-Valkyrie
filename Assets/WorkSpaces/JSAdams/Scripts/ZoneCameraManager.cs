@@ -22,6 +22,16 @@ public class ZoneCameraManager : MonoBehaviour
         Instance = this;
     }
 
+    private void OnEnable()
+    {
+        BallRegistry.OnPrimaryChanged += SetPrimaryBall;
+    }
+
+    private void OnDisable()
+    {
+        BallRegistry.OnPrimaryChanged -= SetPrimaryBall;
+    }
+
     public void SetZone(Zone zone)
     {
         if (!hasInitialized)

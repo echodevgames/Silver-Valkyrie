@@ -33,9 +33,28 @@ public class CameraFollow : MonoBehaviour
         cam = GetComponent<Camera>();
     }
 
+    private void OnEnable()
+    {
+        BallRegistry.OnPrimaryChanged += OnPrimaryBallChanged;
+    }
+
+    private void OnDisable()
+    {
+        BallRegistry.OnPrimaryChanged -= OnPrimaryBallChanged;
+    }
+
+    private void OnPrimaryBallChanged(Transform primaryBall)
+    {
+        target = primaryBall;
+    }
+
     private void Start()
     {
         RefreshBounds();
+
+        // Sync with whatever ball is already registered at startup
+        if (target == null && BallRegistry.Instance != null)
+            target = BallRegistry.Instance.PrimaryBall;
     }
 
     /// <summary>
@@ -60,6 +79,11 @@ public class CameraFollow : MonoBehaviour
 
     private void LateUpdate()
     {
+        // Always sync from the registry — covers race conditions where the event
+        // fired before CameraFollow was subscribed, or target went stale after a drain.
+        if (BallRegistry.Instance != null)
+            target = BallRegistry.Instance.PrimaryBall;
+
         if (target == null) return;
 
         Vector3 desired = target.position;
