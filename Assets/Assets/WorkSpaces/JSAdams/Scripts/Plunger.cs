@@ -1,155 +1,159 @@
-// ----- Plunger.cs START -----
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections;
 
+/// <summary>
+/// Standalone plunger controller. Hold the launch button to pull the ram back,
+/// release to fire the ball up the lane.
+/// </summary>
 public class Plunger : MonoBehaviour
 {
+    private enum PlungerState { Idle, Pulling, Slamming, Settling }
+
     [Header("References")]
     [SerializeField] private Rigidbody2D ramRb;
-    [SerializeField] private Transform housing;
+    [SerializeField] private Transform housingTransform;
     [SerializeField] private InputActionReference launchAction;
 
-    [Header("Tuning")]
-    [SerializeField] private float maxPullDistance = 1.2f;
-    [SerializeField] private float pullDuration = 0.6f;
+    [Header("Pull")]
+    [Tooltip("How far the ram travels down when fully charged.")]
+    [SerializeField] private float maxPullDistance = 1.5f;
+    [Tooltip("Time in seconds to reach full pull from a fresh press.")]
+    [SerializeField] private float pullDuration = 0.7f;
 
-    [Tooltip("How fast the slam happens")]
-    [SerializeField] private float slamSpeed = 30f;
+    [Header("Launch")]
+    [Tooltip("Upward velocity applied to the ram on release.")]
+    [SerializeField] private float launchSpeed = 35f;
 
-    [Tooltip("Visual overshoot amount")]
-    [SerializeField] private float overshootAmount = 0.2f;
+    [Header("Settle")]
+    [Tooltip("Peak overshoot distance after the slam.")]
+    [SerializeField] private float overshootAmount = 0.15f;
+    [Tooltip("Higher value stops oscillation faster.")]
+    [SerializeField] private float settleDamping = 5f;
+    [Tooltip("Higher value tightens the oscillation frequency.")]
+    [SerializeField] private float settleFrequency = 14f;
 
-    [Tooltip("How fast it settles after slam")]
-    [SerializeField] private float settleSpeed = 10f;
+    [Header("Housing Shake")]
+    [SerializeField] private float shakeStrength = 0.06f;
+    [SerializeField] private float shakeDuration = 0.12f;
 
-    private Vector2 startPos;
-
-    private bool isPulling;
-    private bool isSlamming;
-    private bool isSettling;
-
+    private PlungerState state = PlungerState.Idle;
+    private Vector2 restPosition;
     private float pullTimer;
-    private float currentOffset;
     private float settleTimer;
+
     private void Awake()
     {
-        startPos = ramRb.position;
+        restPosition = ramRb.position;
+
+        // Keep the ram Kinematic at rest so the ball's weight cannot push it down.
+        // We only switch to Dynamic for the brief slam impulse.
+        ramRb.bodyType = RigidbodyType2D.Kinematic;
     }
 
     private void OnEnable()
     {
         launchAction.action.Enable();
-        launchAction.action.performed += ctx => StartPull();
-        launchAction.action.canceled += ctx => Release();
+        launchAction.action.performed += OnPullStarted;
+        launchAction.action.canceled  += OnPullReleased;
     }
 
     private void OnDisable()
     {
-        launchAction.action.Disable();
+        launchAction.action.performed -= OnPullStarted;
+        launchAction.action.canceled  -= OnPullReleased;
     }
 
-    private void StartPull()
+    private void OnPullStarted(InputAction.CallbackContext ctx)
     {
-        if (!GameStateManager.Instance.IsGameRunning) return;
-
-        isPulling = true;
-        isSlamming = false;
-        isSettling = false;
+        if (state != PlungerState.Idle) return;
+        state = PlungerState.Pulling;
         pullTimer = 0f;
     }
 
-    private void Release()
+    private void OnPullReleased(InputAction.CallbackContext ctx)
     {
-        if (!GameStateManager.Instance.IsGameRunning) return;
+        if (state != PlungerState.Pulling) return;
+        state = PlungerState.Slamming;
 
-        isPulling = false;
-        isSlamming = true;
-
-        // CRITICAL: give real velocity for physical impact
-        ramRb.linearVelocity = Vector2.up * slamSpeed;
+        // Switch to Dynamic so the ram delivers a real physics impulse to the ball.
+        ramRb.bodyType = RigidbodyType2D.Dynamic;
+        ramRb.linearVelocity = Vector2.up * launchSpeed;
 
         StartCoroutine(ShakeHousing());
     }
 
     private void FixedUpdate()
     {
-        if (isPulling)
+        switch (state)
         {
-            pullTimer += Time.fixedDeltaTime;
-            float t = Mathf.Clamp01(pullTimer / pullDuration);
-
-            float eased = 1f - Mathf.Pow(1f - t, 2f);
-            currentOffset = eased * maxPullDistance;
-
-            MoveToOffset(currentOffset);
-        }
-        else if (isSlamming)
-        {
-            // wait until ram reaches neutral
-            if (ramRb.position.y >= startPos.y)
-            {
-                isSlamming = false;
-                isSettling = true;
-                settleTimer = 0f;
-
-
-            }
-        }
-        else if (isSettling)
-        {
-            settleTimer += Time.fixedDeltaTime;
-
-            float damping = 4f;     // higher = stops faster
-            float frequency = 12f;  // higher = tighter swings
-
-            float offset =
-                overshootAmount *
-                Mathf.Exp(-damping * settleTimer) *
-                Mathf.Cos(frequency * settleTimer);
-
-            MoveToOffset(offset);
-
-            if (Mathf.Abs(offset) < 0.01f)
-            {
-                isSettling = false;
-                MoveToOffset(0f);
-            }
-        }
-        else
-        {
-            MoveToOffset(0f);
+            case PlungerState.Pulling:  HandlePull();   break;
+            case PlungerState.Slamming: HandleSlam();   break;
+            case PlungerState.Settling: HandleSettle(); break;
         }
     }
 
-    private void MoveToOffset(float offset)
+    private void HandlePull()
     {
-        Vector2 target = new Vector2(
-            startPos.x,
-            startPos.y - offset
-        );
+        pullTimer += Time.fixedDeltaTime;
+        float t = Mathf.Clamp01(pullTimer / pullDuration);
+        float pullOffset = EaseOut(t) * maxPullDistance;
+        SetRamYOffset(-pullOffset); // negative = move ram downward
+    }
 
-        ramRb.MovePosition(target);
+    private void HandleSlam()
+    {
+        // Wait until the ram has passed its rest height on the way up.
+        if (ramRb.position.y < restPosition.y) return;
+
+        // Return to Kinematic before settling so nothing can push it around.
+        ramRb.bodyType = RigidbodyType2D.Kinematic;
+        ramRb.linearVelocity = Vector2.zero;
+        settleTimer = 0f;
+        state = PlungerState.Settling;
+    }
+
+    private void HandleSettle()
+    {
+        settleTimer += Time.fixedDeltaTime;
+
+        float oscillation =
+            overshootAmount *
+            Mathf.Exp(-settleDamping * settleTimer) *
+            Mathf.Cos(settleFrequency * settleTimer);
+
+        SetRamYOffset(oscillation);
+
+        if (settleTimer > 0.3f && Mathf.Abs(oscillation) < 0.005f)
+        {
+            SetRamYOffset(0f);
+            state = PlungerState.Idle;
+        }
+    }
+
+    /// <summary>Moves the ram to its rest position offset vertically by yOffset.</summary>
+    private void SetRamYOffset(float yOffset)
+    {
+        ramRb.MovePosition(new Vector2(restPosition.x, restPosition.y + yOffset));
     }
 
     private IEnumerator ShakeHousing()
     {
-        float duration = 0.12f;
-        float strength = 0.06f;
+        if (housingTransform == null) yield break;
 
-        Vector3 original = housing.localPosition;
+        Vector3 origin = housingTransform.localPosition;
         float timer = 0f;
 
-        while (timer < duration)
+        while (timer < shakeDuration)
         {
             timer += Time.deltaTime;
-            housing.localPosition =
-                original + (Vector3)Random.insideUnitCircle * strength;
-
+            housingTransform.localPosition = origin + (Vector3)(Random.insideUnitCircle * shakeStrength);
             yield return null;
         }
 
-        housing.localPosition = original;
+        housingTransform.localPosition = origin;
     }
+
+    /// <summary>Quadratic ease-out curve. t in 0..1, returns 0..1.</summary>
+    private static float EaseOut(float t) => 1f - Mathf.Pow(1f - t, 2f);
 }
-// ----- Plunger.cs END -----

@@ -303,11 +303,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98eedff699f65b4387e6542761db053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Plunger
-  ramRb: {fileID: 0}
-  housing: {fileID: 6326819779417256346}
+  ramRb: {fileID: 5743787798068191899}
+  housingTransform: {fileID: 6326819779417256346}
   launchAction: {fileID: 7941719172869085890, guid: 4ed380db7ec924c4fb0ebe14f0732fc5, type: 3}
   maxPullDistance: 3
   pullDuration: 0.6
-  slamSpeed: 30
+  launchSpeed: 35
   overshootAmount: 0.15
-  settleSpeed: 10
+  settleDamping: 5
+  settleFrequency: 14
+  shakeStrength: 0.06
+  shakeDuration: 0.12
