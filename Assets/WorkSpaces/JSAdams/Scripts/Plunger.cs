@@ -13,7 +13,6 @@ public class Plunger : MonoBehaviour
     [Header("References")]
     [SerializeField] private Rigidbody2D ramRb;
     [SerializeField] private Transform housingTransform;
-    [SerializeField] private InputActionReference launchAction;
 
     [Header("Pull")]
     [Tooltip("How far the ram travels down when fully charged.")]
@@ -41,6 +40,7 @@ public class Plunger : MonoBehaviour
     private Vector2 restPosition;
     private float pullTimer;
     private float settleTimer;
+    private SilverValkyrieInput input;
 
     private void Awake()
     {
@@ -49,19 +49,27 @@ public class Plunger : MonoBehaviour
         // Keep the ram Kinematic at rest so the ball's weight cannot push it down.
         // We only switch to Dynamic for the brief slam impulse.
         ramRb.bodyType = RigidbodyType2D.Kinematic;
+
+        input = new SilverValkyrieInput();
     }
 
     private void OnEnable()
     {
-        launchAction.action.Enable();
-        launchAction.action.performed += OnPullStarted;
-        launchAction.action.canceled  += OnPullReleased;
+        input.Gameplay.Enable();
+        input.Gameplay.Launch.performed += OnPullStarted;
+        input.Gameplay.Launch.canceled  += OnPullReleased;
     }
 
     private void OnDisable()
     {
-        launchAction.action.performed -= OnPullStarted;
-        launchAction.action.canceled  -= OnPullReleased;
+        input.Gameplay.Launch.performed -= OnPullStarted;
+        input.Gameplay.Launch.canceled  -= OnPullReleased;
+        input.Gameplay.Disable();
+    }
+
+    private void OnDestroy()
+    {
+        input.Dispose();
     }
 
     private void OnPullStarted(InputAction.CallbackContext ctx)
