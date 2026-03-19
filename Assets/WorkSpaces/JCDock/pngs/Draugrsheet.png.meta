@@ -279,7 +279,7 @@ TextureImporter:
       name: DraugrsheetDown_2
       rect:
         serializedVersion: 2
-        x: 129
+        x: 128
         y: 448
         width: 64
         height: 64
@@ -320,7 +320,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_4
+      name: DraugrsheetDownLeft_0
       rect:
         serializedVersion: 2
         x: 0
@@ -342,7 +342,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_5
+      name: DraugrsheetDownLeft_1
       rect:
         serializedVersion: 2
         x: 64
@@ -364,7 +364,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_6
+      name: DraugrsheetDownLeft_2
       rect:
         serializedVersion: 2
         x: 128
@@ -386,7 +386,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_7
+      name: DraugrsheetDownLeft_3
       rect:
         serializedVersion: 2
         x: 192
@@ -408,7 +408,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_8
+      name: DraugrsheetLeft_0
       rect:
         serializedVersion: 2
         x: 0
@@ -430,7 +430,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_9
+      name: DraugrsheetLeft_1
       rect:
         serializedVersion: 2
         x: 64
@@ -452,7 +452,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_10
+      name: DraugrsheetLeft_2
       rect:
         serializedVersion: 2
         x: 128
@@ -474,7 +474,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_11
+      name: DraugrsheetLeft_3
       rect:
         serializedVersion: 2
         x: 192
@@ -496,7 +496,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_12
+      name: DraugrsheetUpLeft_0
       rect:
         serializedVersion: 2
         x: 0
@@ -518,7 +518,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_13
+      name: DraugrsheetUpLeft_1
       rect:
         serializedVersion: 2
         x: 64
@@ -540,7 +540,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_14
+      name: DraugrsheetUpLeft_2
       rect:
         serializedVersion: 2
         x: 128
@@ -562,10 +562,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_15
+      name: DraugrsheetUpLeft_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 191
         y: 256
         width: 64
         height: 64
@@ -584,7 +584,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_16
+      name: DraugrsheetUp_0
       rect:
         serializedVersion: 2
         x: 0
@@ -606,7 +606,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_17
+      name: DraugrsheetUp_1
       rect:
         serializedVersion: 2
         x: 64
@@ -628,7 +628,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_18
+      name: DraugrsheetUp_2
       rect:
         serializedVersion: 2
         x: 128
@@ -650,7 +650,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_19
+      name: DraugrsheetUp_3
       rect:
         serializedVersion: 2
         x: 192
@@ -672,7 +672,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_20
+      name: DraugrsheetUpRight_0
       rect:
         serializedVersion: 2
         x: 0
@@ -694,7 +694,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_21
+      name: DraugrsheetUpRight_1
       rect:
         serializedVersion: 2
         x: 64
@@ -716,7 +716,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_22
+      name: DraugrsheetUpRight_2
       rect:
         serializedVersion: 2
         x: 128
@@ -738,7 +738,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_23
+      name: DraugrsheetUpRight_3
       rect:
         serializedVersion: 2
         x: 192
@@ -760,7 +760,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_24
+      name: DraugrsheetRight_0
       rect:
         serializedVersion: 2
         x: 0
@@ -782,7 +782,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_25
+      name: DraugrsheetRight_1
       rect:
         serializedVersion: 2
         x: 64
@@ -804,7 +804,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_26
+      name: DraugrsheetRight_2
       rect:
         serializedVersion: 2
         x: 128
@@ -826,7 +826,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_27
+      name: DraugrsheetRight_3
       rect:
         serializedVersion: 2
         x: 192
@@ -848,7 +848,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_28
+      name: DraugrsheetDownRight_0
       rect:
         serializedVersion: 2
         x: 0
@@ -870,7 +870,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_29
+      name: DraugrsheetDownRight_1
       rect:
         serializedVersion: 2
         x: 64
@@ -892,7 +892,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_30
+      name: DraugrsheetDownRight_2
       rect:
         serializedVersion: 2
         x: 128
@@ -914,7 +914,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_31
+      name: DraugrsheetDownRight_3
       rect:
         serializedVersion: 2
         x: 192
@@ -951,38 +951,38 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
+      DraugrsheetDownLeft_0: -4325788978833320401
+      DraugrsheetDownLeft_1: -4038460768287463709
+      DraugrsheetDownLeft_2: -7457622547862816772
+      DraugrsheetDownLeft_3: 4083823217360279804
+      DraugrsheetDownRight_0: -8593972272897095009
+      DraugrsheetDownRight_1: 7017559923353664052
+      DraugrsheetDownRight_2: 5808406050651692208
+      DraugrsheetDownRight_3: -342222952039723123
       DraugrsheetDown_0: -8845042382925056248
       DraugrsheetDown_1: 6554859495853574453
       DraugrsheetDown_2: 2658850587613977960
       DraugrsheetDown_3: 5651027904513762106
-      Draugrsheet_10: -78377718258557538
-      Draugrsheet_11: 4786757090276944549
-      Draugrsheet_12: -7289638859283210143
-      Draugrsheet_13: -45908347763500255
-      Draugrsheet_14: 1531059574091616239
-      Draugrsheet_15: -8822615549912076765
-      Draugrsheet_16: -6120143900496886038
-      Draugrsheet_17: 8183260789949321409
-      Draugrsheet_18: -952853570456299847
-      Draugrsheet_19: -1963521955526546099
-      Draugrsheet_20: -2609852314301651057
-      Draugrsheet_21: 5044681171539425474
-      Draugrsheet_22: -1656015244943688547
-      Draugrsheet_23: 1655734396399541513
-      Draugrsheet_24: 5019370719388741232
-      Draugrsheet_25: -3817880013162985123
-      Draugrsheet_26: -3139648315075181586
-      Draugrsheet_27: 6133842024475852804
-      Draugrsheet_28: -8593972272897095009
-      Draugrsheet_29: 7017559923353664052
-      Draugrsheet_30: 5808406050651692208
-      Draugrsheet_31: -342222952039723123
-      Draugrsheet_4: -4325788978833320401
-      Draugrsheet_5: -4038460768287463709
-      Draugrsheet_6: -7457622547862816772
-      Draugrsheet_7: 4083823217360279804
-      Draugrsheet_8: 820427728066688957
-      Draugrsheet_9: 6809636518140533795
+      DraugrsheetLeft_0: 820427728066688957
+      DraugrsheetLeft_1: 6809636518140533795
+      DraugrsheetLeft_2: -78377718258557538
+      DraugrsheetLeft_3: 4786757090276944549
+      DraugrsheetRight_0: 5019370719388741232
+      DraugrsheetRight_1: -3817880013162985123
+      DraugrsheetRight_2: -3139648315075181586
+      DraugrsheetRight_3: 6133842024475852804
+      DraugrsheetUpLeft_0: -7289638859283210143
+      DraugrsheetUpLeft_1: -45908347763500255
+      DraugrsheetUpLeft_2: 1531059574091616239
+      DraugrsheetUpLeft_3: -8822615549912076765
+      DraugrsheetUpRight_0: -2609852314301651057
+      DraugrsheetUpRight_1: 5044681171539425474
+      DraugrsheetUpRight_2: -1656015244943688547
+      DraugrsheetUpRight_3: 1655734396399541513
+      DraugrsheetUp_0: -6120143900496886038
+      DraugrsheetUp_1: 8183260789949321409
+      DraugrsheetUp_2: -952853570456299847
+      DraugrsheetUp_3: -1963521955526546099
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
