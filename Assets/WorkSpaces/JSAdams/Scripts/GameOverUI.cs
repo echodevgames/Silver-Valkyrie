@@ -85,10 +85,10 @@ public class GameOverUI : MonoBehaviour
         GameDirector.Instance?.RestartGame();
     }
 
-    /// <summary>Opens the high score board overlay.</summary>
+    /// <summary>Opens the high score board overlay and hides the game over panel behind it.</summary>
     public void OnViewHighScores()
     {
         Debug.Log("[GameOver] View High Scores");
-        highScoreBoard?.Show();
+        highScoreBoard?.Show(panel);
     }
 }

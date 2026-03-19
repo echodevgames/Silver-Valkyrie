@@ -70,10 +70,29 @@ public class PauseMenuUI : MonoBehaviour
     /// <summary>Freezes or unfreezes time and audio, and shows or hides the panel.</summary>
     public void TogglePause()
     {
-        _isPaused            = !_isPaused;
-        Time.timeScale       = _isPaused ? TimeScalePaused  : TimeScalePlaying;
-        AudioListener.pause  = _isPaused;
-        panel?.SetActive(_isPaused);
+        _isPaused           = !_isPaused;
+        Time.timeScale      = _isPaused ? TimeScalePaused  : TimeScalePlaying;
+        AudioListener.pause = _isPaused;
+
+        if (_isPaused)
+        {
+            panel?.SetActive(true);
+        }
+        else
+        {
+            // Force-close the entire sub-panel stack before hiding the root panel,
+            // so nothing is left visible regardless of how deep the user navigated.
+            ForceCloseAll();
+            panel?.SetActive(false);
+        }
+    }
+
+    /// <summary>Collapses every sub-panel that could be open on top of the pause menu.</summary>
+    private void ForceCloseAll()
+    {
+        optionsMenuUI?.ForceClose();
+        highScoreBoard?.ForceClose();
+        creditsUI?.ForceClose();
     }
 
     // ── Button callbacks — wired via Inspector PersistentCalls ────────────────
@@ -106,11 +125,11 @@ public class PauseMenuUI : MonoBehaviour
         optionsMenuUI?.Show(panel);
     }
 
-    /// <summary>Opens the high score board overlay.</summary>
+    /// <summary>Opens the high score board overlay and hides the pause panel behind it.</summary>
     public void OnHighScores()
     {
         Debug.Log("[PauseMenu] High Scores");
-        highScoreBoard?.Show();
+        highScoreBoard?.Show(panel);
     }
 
     /// <summary>Opens the credits overlay and hides the pause panel behind it.</summary>

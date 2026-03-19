@@ -58,6 +58,13 @@ public class CreditsUI : MonoBehaviour
         _caller = null;
     }
 
+    /// <summary>Tears down the panel without restoring the caller. Used when the entire pause stack is force-dismissed.</summary>
+    public void ForceClose()
+    {
+        panel?.SetActive(false);
+        _caller = null;
+    }
+
     // ── Helpers ───────────────────────────────────────────────────────────────
 
     private void BuildCreditsText()

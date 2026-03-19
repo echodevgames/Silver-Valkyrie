@@ -7,10 +7,11 @@ using UnityEngine.UI;
 /// decibel values into the Audio Mixer via exposed parameters.
 ///
 /// Slider range: 0.0001–1.0 (linear) maps to −80 dB–0 dB (log scale).
-/// Values persist across sessions via PlayerPrefs.
+/// Values persist across sessions via PlayerPrefs and are restored every Start().
 ///
-/// SETUP: In the Audio Mixer window, expose each group's Volume parameter and
-/// name them exactly: "MasterVolume", "MusicVolume", "SFXVolume", "AmbianceVolume".
+/// SETUP: In the Audio Mixer window, right-click each group's Volume parameter and
+/// choose "Expose to script". Rename the exposed parameters exactly:
+///   "MasterVolume", "MusicVolume", "SFXVolume", "AmbianceVolume"
 /// </summary>
 public class AudioSettingsUI : MonoBehaviour
 {
@@ -51,6 +52,32 @@ public class AudioSettingsUI : MonoBehaviour
         if (panel != null) panel.SetActive(false);
     }
 
+    private void Start()
+    {
+        // Wire callbacks in code so Inspector wiring is not required.
+        sliderMaster?.onValueChanged.AddListener(OnMasterChanged);
+        sliderMusic?.onValueChanged.AddListener(OnMusicChanged);
+        sliderSFX?.onValueChanged.AddListener(OnSFXChanged);
+        sliderAmbiance?.onValueChanged.AddListener(OnAmbianceChanged);
+
+        // Restore persisted levels on every session start.
+        ApplyPersistedLevels();
+    }
+
+    private void OnDestroy()
+    {
+        sliderMaster?.onValueChanged.RemoveListener(OnMasterChanged);
+        sliderMusic?.onValueChanged.RemoveListener(OnMusicChanged);
+        sliderSFX?.onValueChanged.RemoveListener(OnSFXChanged);
+        sliderAmbiance?.onValueChanged.RemoveListener(OnAmbianceChanged);
+    }
+
+    private void OnApplicationQuit()
+    {
+        // Safety save — covers the case where the game exits with the panel open.
+        SaveValues();
+    }
+
     // ── Public API ────────────────────────────────────────────────────────────
 
     /// <summary>Shows the audio settings panel, hiding the caller.</summary>
@@ -71,7 +98,15 @@ public class AudioSettingsUI : MonoBehaviour
         _caller = null;
     }
 
-    // ── Slider callbacks (wired via Inspector onClick / onValueChanged) ───────
+    /// <summary>Saves values and tears down the panel without restoring the caller. Used when the entire pause stack is force-dismissed.</summary>
+    public void ForceClose()
+    {
+        SaveValues();
+        panel?.SetActive(false);
+        _caller = null;
+    }
+
+    // ── Slider callbacks ──────────────────────────────────────────────────────
 
     /// <summary>Called by sliderMaster.onValueChanged.</summary>
     public void OnMasterChanged(float value)   { if (!_initialising) ApplyToMixer(ParamMaster,   value); }
@@ -86,6 +121,15 @@ public class AudioSettingsUI : MonoBehaviour
     public void OnAmbianceChanged(float value) { if (!_initialising) ApplyToMixer(ParamAmbiance, value); }
 
     // ── Private ───────────────────────────────────────────────────────────────
+
+    /// <summary>Applies persisted PlayerPrefs values straight to the mixer (no slider involvement).</summary>
+    private void ApplyPersistedLevels()
+    {
+        ApplyToMixer(ParamMaster,   PlayerPrefs.GetFloat(KeyMaster,   1f));
+        ApplyToMixer(ParamMusic,    PlayerPrefs.GetFloat(KeyMusic,    1f));
+        ApplyToMixer(ParamSFX,      PlayerPrefs.GetFloat(KeySFX,      1f));
+        ApplyToMixer(ParamAmbiance, PlayerPrefs.GetFloat(KeyAmbiance, 1f));
+    }
 
     private void LoadAndApply()
     {
@@ -119,6 +163,8 @@ public class AudioSettingsUI : MonoBehaviour
     {
         if (mixer == null) return;
         float db = Mathf.Log10(Mathf.Max(linearValue, 0.0001f)) * 20f;
-        mixer.SetFloat(param, db);
+        if (!mixer.SetFloat(param, db))
+            Debug.LogWarning($"[AudioSettingsUI] Could not set mixer param '{param}'. Is it exposed in the Audio Mixer?");
     }
 }
+

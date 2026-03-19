@@ -36,6 +36,20 @@ public class VideoSettingsUI : MonoBehaviour
         if (panel != null) panel.SetActive(false);
     }
 
+    private void Start()
+    {
+        fullscreenToggle?.onValueChanged.AddListener(OnFullscreenChanged);
+        vsyncToggle?.onValueChanged.AddListener(OnVSyncChanged);
+        qualityDropdown?.onValueChanged.AddListener(OnQualityChanged);
+    }
+
+    private void OnDestroy()
+    {
+        fullscreenToggle?.onValueChanged.RemoveListener(OnFullscreenChanged);
+        vsyncToggle?.onValueChanged.RemoveListener(OnVSyncChanged);
+        qualityDropdown?.onValueChanged.RemoveListener(OnQualityChanged);
+    }
+
     // ── Public API ────────────────────────────────────────────────────────────
 
     /// <summary>Shows the video settings panel, hiding the caller.</summary>
@@ -56,23 +70,31 @@ public class VideoSettingsUI : MonoBehaviour
         _caller = null;
     }
 
-    // ── Toggle / Dropdown callbacks (wired via Inspector onValueChanged) ──────
+    /// <summary>Saves settings and tears down the panel without restoring the caller. Used when the entire pause stack is force-dismissed.</summary>
+    public void ForceClose()
+    {
+        SaveValues();
+        panel?.SetActive(false);
+        _caller = null;
+    }
 
-    /// <summary>Called by fullscreenToggle.onValueChanged.</summary>
+    // ── Toggle / Dropdown callbacks ───────────────────────────────────────────
+
+    /// <summary>Applies fullscreen state immediately.</summary>
     public void OnFullscreenChanged(bool value)
     {
         if (_initialising) return;
         Screen.fullScreen = value;
     }
 
-    /// <summary>Called by vsyncToggle.onValueChanged.</summary>
+    /// <summary>Applies VSync state immediately.</summary>
     public void OnVSyncChanged(bool value)
     {
         if (_initialising) return;
         QualitySettings.vSyncCount = value ? 1 : 0;
     }
 
-    /// <summary>Called by qualityDropdown.onValueChanged.</summary>
+    /// <summary>Applies quality level immediately.</summary>
     public void OnQualityChanged(int index)
     {
         if (_initialising) return;

@@ -99,6 +99,14 @@ public class KeyBindingsUI : MonoBehaviour
         _caller = null;
     }
 
+    /// <summary>Cancels any rebind and tears down the panel without restoring the caller. Used when the entire pause stack is force-dismissed.</summary>
+    public void ForceClose()
+    {
+        CancelRebind();
+        panel?.SetActive(false);
+        _caller = null;
+    }
+
     /// <summary>Resets all bindings to default and refreshes the display.</summary>
     public void OnResetAll()
     {

@@ -45,6 +45,16 @@ public class OptionsMenuUI : MonoBehaviour
         _caller = null;
     }
 
+    /// <summary>Tears down this panel and all open sub-panels without restoring the caller. Used when the entire pause stack is force-dismissed.</summary>
+    public void ForceClose()
+    {
+        audioSettings?.ForceClose();
+        videoSettings?.ForceClose();
+        keyBindings?.ForceClose();
+        panel?.SetActive(false);
+        _caller = null;
+    }
+
     /// <summary>Opens the Audio Settings sub-panel.</summary>
     public void OnAudio() => audioSettings?.Show(panel);
 
