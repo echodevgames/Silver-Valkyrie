@@ -10,6 +10,8 @@ public class PauseMenuUI : MonoBehaviour
 {
     [SerializeField] private GameObject         panel;
     [SerializeField] private HighScoreBoardUI   highScoreBoard;
+    [SerializeField] private OptionsMenuUI      optionsMenuUI;
+    [SerializeField] private CreditsUI          creditsUI;
 
     [Tooltip("Optional — assign a Pause InputAction from your InputActions asset for " +
              "full controller / rebinding support. Leave empty to use the keyboard/gamepad fallback.")]
@@ -97,10 +99,11 @@ public class PauseMenuUI : MonoBehaviour
         GameDirector.Instance?.RestartGame();
     }
 
-    /// <summary>Stub — open options / settings screen when implementing.</summary>
+    /// <summary>Opens the options menu and hides the pause panel behind it.</summary>
     public void OnOptions()
     {
-        Debug.Log("[PauseMenu] Options — stub");
+        Debug.Log("[PauseMenu] Options");
+        optionsMenuUI?.Show(panel);
     }
 
     /// <summary>Opens the high score board overlay.</summary>
@@ -110,10 +113,11 @@ public class PauseMenuUI : MonoBehaviour
         highScoreBoard?.Show();
     }
 
-    /// <summary>Stub — open credits screen when implementing.</summary>
+    /// <summary>Opens the credits overlay and hides the pause panel behind it.</summary>
     public void OnCredits()
     {
-        Debug.Log("[PauseMenu] Credits — stub");
+        Debug.Log("[PauseMenu] Credits");
+        creditsUI?.Show(panel);
     }
 
     /// <summary>Exits play mode in the Editor; quits the application in builds.</summary>

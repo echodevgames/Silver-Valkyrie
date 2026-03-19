@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream:Assets/WorkSpaces/JCDock/Aseprite Files/Draugr.aseprite.meta
 guid: ba81d2048ea73544aa3d8e066555480c
-=======
-guid: f19b6209986e3d742a47c4785e9da502
->>>>>>> Stashed changes:Assets/Aseprite Files/Draugr.aseprite.meta
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -133,11 +129,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Draugr
     originalName: 
-<<<<<<< Updated upstream:Assets/WorkSpaces/JCDock/Aseprite Files/Draugr.aseprite.meta
     pivot: {x: 0.5, y: -0.015873017}
-=======
-    pivot: {x: 0.5, y: 0}
->>>>>>> Stashed changes:Assets/Aseprite Files/Draugr.aseprite.meta
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -147,11 +139,7 @@ ScriptedImporter:
       y: 4
       width: 46
       height: 63
-<<<<<<< Updated upstream:Assets/WorkSpaces/JCDock/Aseprite Files/Draugr.aseprite.meta
-    spriteID: 4ffe49f581ff4af4080cfe9d599e81e6
-=======
-    spriteID: 2eea9eb4a61c8c74d92f2639091faaf2
->>>>>>> Stashed changes:Assets/Aseprite Files/Draugr.aseprite.meta
+    spriteID: ed02428b26197d546bbd5fcb30b842fb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -180,17 +168,10 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 9
-<<<<<<< Updated upstream:Assets/WorkSpaces/JCDock/Aseprite Files/Draugr.aseprite.meta
         y: 1
         width: 46
         height: 63
-      spriteId: 4ffe49f581ff4af4080cfe9d599e81e6
-=======
-        y: 0
-        width: 46
-        height: 63
-      spriteId: 2eea9eb4a61c8c74d92f2639091faaf2
->>>>>>> Stashed changes:Assets/Aseprite Files/Draugr.aseprite.meta
+      spriteId: ed02428b26197d546bbd5fcb30b842fb
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
