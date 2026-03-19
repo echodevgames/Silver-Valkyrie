@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Assets/WorkSpaces/JSAdams/Scenes/0-1 GameScene.unity
+    path: Assets/WorkSpaces/JSAdams/Scenes/0-1 GameScene.unity
     guid: 46362d4eebb0d474e87a5ec8e5ede3df
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 4ed380db7ec924c4fb0ebe14f0732fc5, type: 3}
