@@ -102,6 +102,15 @@ public partial class @SilverValkyrieInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""9421cae6-2ceb-4ca9-ba1d-f84ae3930046"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""RightFlipper"",
                     ""type"": ""Button"",
                     ""id"": ""705329b6-fcb4-41b4-94b7-846bc35556b6"",
@@ -123,22 +132,11 @@ public partial class @SilverValkyrieInput: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""d5dd8687-abff-4a75-a165-cbeeeab50fb2"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""id"": ""8a52e81f-0340-4f64-9358-d69750fb6ebc"",
+                    ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""LeftFlipper"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""69768b92-20a8-4040-905c-0408e6fe10ba"",
-                    ""path"": ""<Keyboard>/leftCtrl"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""LeftFlipper"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -149,7 +147,18 @@ public partial class @SilverValkyrieInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""LeftFlipper"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""69768b92-20a8-4040-905c-0408e6fe10ba"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""LeftFlipper"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -160,7 +169,7 @@ public partial class @SilverValkyrieInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""LeftFlipper"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -171,7 +180,7 @@ public partial class @SilverValkyrieInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Gamepad"",
                     ""action"": ""LeftFlipper"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -182,40 +191,51 @@ public partial class @SilverValkyrieInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""LeftFlipper"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8a52e81f-0340-4f64-9358-d69750fb6ebc"",
-                    ""path"": ""<Keyboard>/leftShift"",
+                    ""id"": ""9542859f-fc4d-40cc-aaee-705096410511"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""LeftFlipper"",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d2c66ec6-f23f-4622-82b6-3abc128ea759"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""id"": ""04623774-1324-4b63-bad3-ce5c09a31b55"",
+                    ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RightFlipper"",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1aaab2b8-4772-4db5-97a5-597a6125fa31"",
-                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""id"": ""c3b43ec1-d286-4a01-a240-f88106084cd7"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9224deca-558e-4dd4-b088-b3a6a001f3f8"",
+                    ""path"": ""<Keyboard>/rightShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""RightFlipper"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -226,7 +246,18 @@ public partial class @SilverValkyrieInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""RightFlipper"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1aaab2b8-4772-4db5-97a5-597a6125fa31"",
+                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""RightFlipper"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -237,7 +268,7 @@ public partial class @SilverValkyrieInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""RightFlipper"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -248,7 +279,7 @@ public partial class @SilverValkyrieInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Gamepad"",
                     ""action"": ""RightFlipper"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -259,18 +290,7 @@ public partial class @SilverValkyrieInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RightFlipper"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9224deca-558e-4dd4-b088-b3a6a001f3f8"",
-                    ""path"": ""<Keyboard>/rightShift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""RightFlipper"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -281,26 +301,197 @@ public partial class @SilverValkyrieInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Launch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b6bfaaa-287e-4c8b-bb1d-549e05cb8513"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Launch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""82fa4f85-cdb7-43c9-b356-5deb9c4b2ac2"",
+                    ""path"": ""<Keyboard>/numpadEnter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Launch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""3115ae1f-fc5d-4c71-bcd0-9ed839e8d516"",
+            ""actions"": [],
+            ""bindings"": []
+        },
+        {
+            ""name"": ""Cheats"",
+            ""id"": ""961e0692-3e22-4af0-ae80-a764551eef40"",
+            ""actions"": [
+                {
+                    ""name"": ""SpawnBall"",
+                    ""type"": ""Button"",
+                    ""id"": ""3626230d-c34d-42d7-bc54-65035904cddb"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""KillBall"",
+                    ""type"": ""Button"",
+                    ""id"": ""e3ce027f-e10b-4a00-9c5d-424137655dbf"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AddLife"",
+                    ""type"": ""Button"",
+                    ""id"": ""ea232e99-abec-4b39-bd1f-34c6acdcb4be"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleCheatSheet"",
+                    ""type"": ""Button"",
+                    ""id"": ""2851b4dc-496e-4383-b08e-a880ef67c98b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""58b1ea35-3e3d-4f8d-a07d-4857968ce82a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""58e89802-137e-4f34-aed0-c59d7fbae305"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpawnBall"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49443012-83af-44fa-9ab1-d189081fa772"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""KillBall"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""257aa1ab-6c91-4f30-abe5-63f97d582b50"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AddLife"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""554a09c3-1820-4cf4-9682-6d48992290d0"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleCheatSheet"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""17612b72-1e2c-4ccc-8a90-3b15f83e0bee"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""Keyboard&Mouse"",
+            ""bindingGroup"": ""Keyboard&Mouse"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Gamepad"",
+            ""bindingGroup"": ""Gamepad"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_LeftFlipper = m_Gameplay.FindAction("LeftFlipper", throwIfNotFound: true);
+        m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         m_Gameplay_RightFlipper = m_Gameplay.FindAction("RightFlipper", throwIfNotFound: true);
         m_Gameplay_Launch = m_Gameplay.FindAction("Launch", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        // Cheats
+        m_Cheats = asset.FindActionMap("Cheats", throwIfNotFound: true);
+        m_Cheats_SpawnBall = m_Cheats.FindAction("SpawnBall", throwIfNotFound: true);
+        m_Cheats_KillBall = m_Cheats.FindAction("KillBall", throwIfNotFound: true);
+        m_Cheats_AddLife = m_Cheats.FindAction("AddLife", throwIfNotFound: true);
+        m_Cheats_ToggleCheatSheet = m_Cheats.FindAction("ToggleCheatSheet", throwIfNotFound: true);
+        m_Cheats_Restart = m_Cheats.FindAction("Restart", throwIfNotFound: true);
     }
 
     ~@SilverValkyrieInput()
     {
         UnityEngine.Debug.Assert(!m_Gameplay.enabled, "This will cause a leak and performance issues, SilverValkyrieInput.Gameplay.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, SilverValkyrieInput.UI.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Cheats.enabled, "This will cause a leak and performance issues, SilverValkyrieInput.Cheats.Disable() has not been called.");
     }
 
     /// <summary>
@@ -377,6 +568,7 @@ public partial class @SilverValkyrieInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Gameplay;
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_LeftFlipper;
+    private readonly InputAction m_Gameplay_Pause;
     private readonly InputAction m_Gameplay_RightFlipper;
     private readonly InputAction m_Gameplay_Launch;
     /// <summary>
@@ -394,6 +586,10 @@ public partial class @SilverValkyrieInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/LeftFlipper".
         /// </summary>
         public InputAction @LeftFlipper => m_Wrapper.m_Gameplay_LeftFlipper;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/Pause".
+        /// </summary>
+        public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         /// <summary>
         /// Provides access to the underlying input action "Gameplay/RightFlipper".
         /// </summary>
@@ -431,6 +627,9 @@ public partial class @SilverValkyrieInput: IInputActionCollection2, IDisposable
             @LeftFlipper.started += instance.OnLeftFlipper;
             @LeftFlipper.performed += instance.OnLeftFlipper;
             @LeftFlipper.canceled += instance.OnLeftFlipper;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
             @RightFlipper.started += instance.OnRightFlipper;
             @RightFlipper.performed += instance.OnRightFlipper;
             @RightFlipper.canceled += instance.OnRightFlipper;
@@ -451,6 +650,9 @@ public partial class @SilverValkyrieInput: IInputActionCollection2, IDisposable
             @LeftFlipper.started -= instance.OnLeftFlipper;
             @LeftFlipper.performed -= instance.OnLeftFlipper;
             @LeftFlipper.canceled -= instance.OnLeftFlipper;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
             @RightFlipper.started -= instance.OnRightFlipper;
             @RightFlipper.performed -= instance.OnRightFlipper;
             @RightFlipper.canceled -= instance.OnRightFlipper;
@@ -490,6 +692,257 @@ public partial class @SilverValkyrieInput: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="GameplayActions" /> instance referencing this action map.
     /// </summary>
     public GameplayActions @Gameplay => new GameplayActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
+    /// <summary>
+    /// Provides access to input actions defined in input action map "UI".
+    /// </summary>
+    public struct UIActions
+    {
+        private @SilverValkyrieInput m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public UIActions(@SilverValkyrieInput wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="UIActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="UIActions" />
+        public void AddCallbacks(IUIActions instance)
+        {
+            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="UIActions" />
+        private void UnregisterCallbacks(IUIActions instance)
+        {
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="UIActions.UnregisterCallbacks(IUIActions)" />.
+        /// </summary>
+        /// <seealso cref="UIActions.UnregisterCallbacks(IUIActions)" />
+        public void RemoveCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="UIActions.AddCallbacks(IUIActions)" />
+        /// <seealso cref="UIActions.RemoveCallbacks(IUIActions)" />
+        /// <seealso cref="UIActions.UnregisterCallbacks(IUIActions)" />
+        public void SetCallbacks(IUIActions instance)
+        {
+            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="UIActions" /> instance referencing this action map.
+    /// </summary>
+    public UIActions @UI => new UIActions(this);
+
+    // Cheats
+    private readonly InputActionMap m_Cheats;
+    private List<ICheatsActions> m_CheatsActionsCallbackInterfaces = new List<ICheatsActions>();
+    private readonly InputAction m_Cheats_SpawnBall;
+    private readonly InputAction m_Cheats_KillBall;
+    private readonly InputAction m_Cheats_AddLife;
+    private readonly InputAction m_Cheats_ToggleCheatSheet;
+    private readonly InputAction m_Cheats_Restart;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Cheats".
+    /// </summary>
+    public struct CheatsActions
+    {
+        private @SilverValkyrieInput m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public CheatsActions(@SilverValkyrieInput wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Cheats/SpawnBall".
+        /// </summary>
+        public InputAction @SpawnBall => m_Wrapper.m_Cheats_SpawnBall;
+        /// <summary>
+        /// Provides access to the underlying input action "Cheats/KillBall".
+        /// </summary>
+        public InputAction @KillBall => m_Wrapper.m_Cheats_KillBall;
+        /// <summary>
+        /// Provides access to the underlying input action "Cheats/AddLife".
+        /// </summary>
+        public InputAction @AddLife => m_Wrapper.m_Cheats_AddLife;
+        /// <summary>
+        /// Provides access to the underlying input action "Cheats/ToggleCheatSheet".
+        /// </summary>
+        public InputAction @ToggleCheatSheet => m_Wrapper.m_Cheats_ToggleCheatSheet;
+        /// <summary>
+        /// Provides access to the underlying input action "Cheats/Restart".
+        /// </summary>
+        public InputAction @Restart => m_Wrapper.m_Cheats_Restart;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Cheats; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="CheatsActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(CheatsActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="CheatsActions" />
+        public void AddCallbacks(ICheatsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CheatsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CheatsActionsCallbackInterfaces.Add(instance);
+            @SpawnBall.started += instance.OnSpawnBall;
+            @SpawnBall.performed += instance.OnSpawnBall;
+            @SpawnBall.canceled += instance.OnSpawnBall;
+            @KillBall.started += instance.OnKillBall;
+            @KillBall.performed += instance.OnKillBall;
+            @KillBall.canceled += instance.OnKillBall;
+            @AddLife.started += instance.OnAddLife;
+            @AddLife.performed += instance.OnAddLife;
+            @AddLife.canceled += instance.OnAddLife;
+            @ToggleCheatSheet.started += instance.OnToggleCheatSheet;
+            @ToggleCheatSheet.performed += instance.OnToggleCheatSheet;
+            @ToggleCheatSheet.canceled += instance.OnToggleCheatSheet;
+            @Restart.started += instance.OnRestart;
+            @Restart.performed += instance.OnRestart;
+            @Restart.canceled += instance.OnRestart;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="CheatsActions" />
+        private void UnregisterCallbacks(ICheatsActions instance)
+        {
+            @SpawnBall.started -= instance.OnSpawnBall;
+            @SpawnBall.performed -= instance.OnSpawnBall;
+            @SpawnBall.canceled -= instance.OnSpawnBall;
+            @KillBall.started -= instance.OnKillBall;
+            @KillBall.performed -= instance.OnKillBall;
+            @KillBall.canceled -= instance.OnKillBall;
+            @AddLife.started -= instance.OnAddLife;
+            @AddLife.performed -= instance.OnAddLife;
+            @AddLife.canceled -= instance.OnAddLife;
+            @ToggleCheatSheet.started -= instance.OnToggleCheatSheet;
+            @ToggleCheatSheet.performed -= instance.OnToggleCheatSheet;
+            @ToggleCheatSheet.canceled -= instance.OnToggleCheatSheet;
+            @Restart.started -= instance.OnRestart;
+            @Restart.performed -= instance.OnRestart;
+            @Restart.canceled -= instance.OnRestart;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="CheatsActions.UnregisterCallbacks(ICheatsActions)" />.
+        /// </summary>
+        /// <seealso cref="CheatsActions.UnregisterCallbacks(ICheatsActions)" />
+        public void RemoveCallbacks(ICheatsActions instance)
+        {
+            if (m_Wrapper.m_CheatsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="CheatsActions.AddCallbacks(ICheatsActions)" />
+        /// <seealso cref="CheatsActions.RemoveCallbacks(ICheatsActions)" />
+        /// <seealso cref="CheatsActions.UnregisterCallbacks(ICheatsActions)" />
+        public void SetCallbacks(ICheatsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CheatsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CheatsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="CheatsActions" /> instance referencing this action map.
+    /// </summary>
+    public CheatsActions @Cheats => new CheatsActions(this);
+    private int m_KeyboardMouseSchemeIndex = -1;
+    /// <summary>
+    /// Provides access to the input control scheme.
+    /// </summary>
+    /// <seealso cref="UnityEngine.InputSystem.InputControlScheme" />
+    public InputControlScheme KeyboardMouseScheme
+    {
+        get
+        {
+            if (m_KeyboardMouseSchemeIndex == -1) m_KeyboardMouseSchemeIndex = asset.FindControlSchemeIndex("Keyboard&Mouse");
+            return asset.controlSchemes[m_KeyboardMouseSchemeIndex];
+        }
+    }
+    private int m_GamepadSchemeIndex = -1;
+    /// <summary>
+    /// Provides access to the input control scheme.
+    /// </summary>
+    /// <seealso cref="UnityEngine.InputSystem.InputControlScheme" />
+    public InputControlScheme GamepadScheme
+    {
+        get
+        {
+            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+            return asset.controlSchemes[m_GamepadSchemeIndex];
+        }
+    }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Gameplay" which allows adding and removing callbacks.
     /// </summary>
@@ -505,6 +958,13 @@ public partial class @SilverValkyrieInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnLeftFlipper(InputAction.CallbackContext context);
         /// <summary>
+        /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPause(InputAction.CallbackContext context);
+        /// <summary>
         /// Method invoked when associated input action "RightFlipper" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
@@ -518,5 +978,56 @@ public partial class @SilverValkyrieInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnLaunch(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="UIActions.AddCallbacks(IUIActions)" />
+    /// <seealso cref="UIActions.RemoveCallbacks(IUIActions)" />
+    public interface IUIActions
+    {
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Cheats" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="CheatsActions.AddCallbacks(ICheatsActions)" />
+    /// <seealso cref="CheatsActions.RemoveCallbacks(ICheatsActions)" />
+    public interface ICheatsActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "SpawnBall" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSpawnBall(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "KillBall" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnKillBall(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "AddLife" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnAddLife(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ToggleCheatSheet" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnToggleCheatSheet(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Restart" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRestart(InputAction.CallbackContext context);
     }
 }

@@ -20,4 +20,4 @@ MonoBehaviour:
   vibrationDuration: 0.05
   hitSound: {fileID: 8300000, guid: c0d4505c09ac35141ad7c1fd8946b7c3, type: 3}
   hitVolume: 0.6
-  scoreValue: 0
+  scoreValue: 5

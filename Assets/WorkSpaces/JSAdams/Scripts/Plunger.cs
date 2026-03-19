@@ -48,36 +48,35 @@ public class Plunger : MonoBehaviour
     private Vector2 restPosition;
     private float pullTimer;
     private float settleTimer;
-    private SilverValkyrieInput input;
 
     private void Awake()
     {
         restPosition = ramRb.position;
-
         // Keep the ram Kinematic at rest so the ball's weight cannot push it down.
         // We only switch to Dynamic for the brief slam impulse.
         ramRb.bodyType = RigidbodyType2D.Kinematic;
-
-        input = new SilverValkyrieInput();
     }
 
     private void OnEnable()
     {
-        input.Gameplay.Enable();
-        input.Gameplay.Launch.performed += OnPullStarted;
-        input.Gameplay.Launch.canceled  += OnPullReleased;
+        var svInput = InputService.Instance?.Input;
+        if (svInput == null)
+        {
+            Debug.LogError("[Plunger] InputService not ready — no input response.");
+            return;
+        }
+
+        svInput.Gameplay.Launch.performed += OnPullStarted;
+        svInput.Gameplay.Launch.canceled  += OnPullReleased;
     }
 
     private void OnDisable()
     {
-        input.Gameplay.Launch.performed -= OnPullStarted;
-        input.Gameplay.Launch.canceled  -= OnPullReleased;
-        input.Gameplay.Disable();
-    }
+        var svInput = InputService.Instance?.Input;
+        if (svInput == null) return;
 
-    private void OnDestroy()
-    {
-        input.Dispose();
+        svInput.Gameplay.Launch.performed -= OnPullStarted;
+        svInput.Gameplay.Launch.canceled  -= OnPullReleased;
     }
 
     private void OnPullStarted(InputAction.CallbackContext ctx)

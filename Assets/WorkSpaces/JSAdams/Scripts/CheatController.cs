@@ -2,18 +2,76 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// Developer cheat keys. Active in the Unity Editor and development builds only —
-/// stripped from release builds via conditional compilation.
+/// Developer cheat input handler. Active in the Unity Editor and development builds only.
 ///
-/// Keybindings:
+/// Driven by the "Cheats" action map in SilverValkyrieInput when it exists.
+/// Falls back to direct keyboard polling if the map has not yet been added to the asset.
+///
+/// Keybindings (default):
 ///   B  — Spawn a ball at the plunger
-///   K  — Kill (destroy) the first ball found in the scene
+///   K  — Kill (destroy) the first ball found — counts as a drain
 ///   L  — Add one ball/life to the pool
-///   R  — Restart (reload the scene immediately)
+///   H  — Toggle cheat sheet overlay
+///   R  — Restart (reload the scene, unfreeze time and audio)
+///   T  — Advance SLAY chain by one letter (simulates an enemy kill)
+///   Y  — Instantly trigger full SLAY Mode (all four letters lit)
 /// </summary>
 public class CheatController : MonoBehaviour
 {
     [SerializeField] private GameDirector gameDirector;
+
+    private InputActionMap _cheatsMap;
+    private InputAction    _spawnBall;
+    private InputAction    _killBall;
+    private InputAction    _addLife;
+    private InputAction    _toggleCheatSheet;
+    private InputAction    _restart;
+
+    private void Awake()
+    {
+        var asset = new SilverValkyrieInput().asset;
+        _cheatsMap = asset.FindActionMap("Cheats");
+
+        if (_cheatsMap != null)
+        {
+            _spawnBall        = _cheatsMap.FindAction("SpawnBall");
+            _killBall         = _cheatsMap.FindAction("KillBall");
+            _addLife          = _cheatsMap.FindAction("AddLife");
+            _toggleCheatSheet = _cheatsMap.FindAction("ToggleCheatSheet");
+            _restart          = _cheatsMap.FindAction("Restart");
+        }
+        else
+        {
+            Debug.LogWarning("[CheatController] 'Cheats' action map not found — falling back to keyboard polling. " +
+                             "Add it in the Input Actions editor to enable action-based cheat input.");
+        }
+    }
+
+    private void OnEnable()
+    {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (_cheatsMap == null) return;
+        _spawnBall.performed        += OnSpawnBall;
+        _killBall.performed         += OnKillBall;
+        _addLife.performed          += OnAddLife;
+        _toggleCheatSheet.performed += OnToggleCheatSheet;
+        _restart.performed          += OnRestart;
+        _cheatsMap.Enable();
+#endif
+    }
+
+    private void OnDisable()
+    {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (_cheatsMap == null) return;
+        _spawnBall.performed        -= OnSpawnBall;
+        _killBall.performed         -= OnKillBall;
+        _addLife.performed          -= OnAddLife;
+        _toggleCheatSheet.performed -= OnToggleCheatSheet;
+        _restart.performed          -= OnRestart;
+        _cheatsMap.Disable();
+#endif
+    }
 
     private void Update()
     {
@@ -23,45 +81,80 @@ public class CheatController : MonoBehaviour
         var keyboard = Keyboard.current;
         if (keyboard == null) return;
 
-        // B — spawn ball
-        if (keyboard.bKey.wasPressedThisFrame)
-        {
-            Debug.Log("[CHEAT] Spawn ball");
-            gameDirector.SpawnBall();
-        }
+        // T and Y have no InputAction map entry — always poll them directly.
+        if (keyboard.tKey.wasPressedThisFrame) OnSlayKill();
+        if (keyboard.yKey.wasPressedThisFrame) OnSlayFull();
 
-        // K — kill active ball (counts as a drain — triggers respawn or game over)
-        if (keyboard.kKey.wasPressedThisFrame)
-        {
-            GameObject ball = GameObject.FindWithTag("Ball");
-            if (ball != null)
-            {
-                Debug.Log("[CHEAT] Kill ball");
-                Destroy(ball);
-                BallLifeService.Instance?.SimulateDrain();
-            }
-            else
-            {
-                Debug.Log("[CHEAT] No ball found.");
-            }
-        }
+        if (_cheatsMap != null) return; // remaining keys handled by the action map
 
-        // L — add a life
-        if (keyboard.lKey.wasPressedThisFrame)
-        {
-            Debug.Log("[CHEAT] +1 ball/life");
-            BallLifeService.Instance?.AddBalls(1);
-        }
+        if (keyboard.bKey.wasPressedThisFrame) OnSpawnBall();
+        if (keyboard.kKey.wasPressedThisFrame) OnKillBall();
+        if (keyboard.lKey.wasPressedThisFrame) OnAddLife();
+        if (keyboard.hKey.wasPressedThisFrame) OnToggleCheatSheet();
+        if (keyboard.rKey.wasPressedThisFrame) OnRestart();
+    }
 
-        // H — toggle cheat sheet overlay (handled by CheatSheetUI itself,
-        //     but documented here so all keys are visible in one place when debugging)
+    // ── Cheat implementations ─────────────────────────────────────────────────
 
-        // R — restart (also unfreeze in case game is in game over freeze state)
-        if (keyboard.rKey.wasPressedThisFrame)
+    private void OnSpawnBall(InputAction.CallbackContext _ = default)
+    {
+        Debug.Log("[CHEAT] Spawn ball");
+        gameDirector.SpawnBall();
+    }
+
+    private void OnKillBall(InputAction.CallbackContext _ = default)
+    {
+        var ball = GameObject.FindWithTag("Ball");
+        if (ball != null)
         {
-            Debug.Log("[CHEAT] Restart");
-            Time.timeScale = 1f;
-            gameDirector.RestartGame();
+            Debug.Log("[CHEAT] Kill ball");
+            Destroy(ball);
+            BallLifeService.Instance?.SimulateDrain();
         }
+        else
+        {
+            Debug.Log("[CHEAT] No ball found.");
+        }
+    }
+
+    private void OnAddLife(InputAction.CallbackContext _ = default)
+    {
+        Debug.Log("[CHEAT] +1 ball/life");
+        BallLifeService.Instance?.AddBalls(1);
+    }
+
+    private void OnToggleCheatSheet(InputAction.CallbackContext _ = default)
+    {
+        Debug.Log("[CHEAT] Toggle cheat sheet");
+        FindFirstObjectByType<CheatSheetUI>()?.Toggle();
+    }
+
+    private void OnRestart(InputAction.CallbackContext _ = default)
+    {
+        Debug.Log("[CHEAT] Restart");
+        Time.timeScale      = 1f;
+        AudioListener.pause = false;
+        gameDirector.RestartGame();
+    }
+
+    private void OnSlayKill(InputAction.CallbackContext _ = default)
+    {
+        var slay = SlayService.Instance;
+        if (slay == null) { Debug.LogWarning("[CHEAT] SlayService not found."); return; }
+        Debug.Log($"[CHEAT] SLAY kill → {slay.CurrentCount + 1}/4");
+        slay.RegisterKill();
+    }
+
+    private void OnSlayFull(InputAction.CallbackContext _ = default)
+    {
+        var slay = SlayService.Instance;
+        if (slay == null) { Debug.LogWarning("[CHEAT] SlayService not found."); return; }
+        if (slay.IsSlayModeActive) { Debug.Log("[CHEAT] SLAY Mode already active."); return; }
+
+        // Fill remaining letters then trigger.
+        int remaining = 4 - slay.CurrentCount;
+        Debug.Log($"[CHEAT] SLAY full — registering {remaining} kill(s) to trigger mode.");
+        for (int i = 0; i < remaining; i++)
+            slay.RegisterKill();
     }
 }
