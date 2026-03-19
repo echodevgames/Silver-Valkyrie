@@ -18955,7 +18955,7 @@ MonoBehaviour:
   shakeStrength: 0.06
   shakeDuration: 0.12
   launchScreenShakeIntensity: 0.35
-  launchSound: {fileID: 8300000, guid: 2839bc0cc5393ba4694216241be03935, type: 3}
+  launchSound: {fileID: 8300000, guid: 3b9277ba1ce000e4da881e34291cfc1d, type: 3}
   launchVolume: 0.9
 --- !u!1 &747904345
 GameObject:
@@ -68693,7 +68693,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1086918066183169998, guid: 66f3d2a5afaba554583b85ad6f98abbf, type: 3}
       propertyPath: m_Mass
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1086918066183169998, guid: 66f3d2a5afaba554583b85ad6f98abbf, type: 3}
       propertyPath: m_GravityScale
@@ -69353,7 +69353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3894e4020e5f3c34fbf122272a6b653b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MusicService
-  musicClip: {fileID: 8300000, guid: d335dd7a30cff5f4b88e8d76320c3a8e, type: 3}
+  musicClip: {fileID: 8300000, guid: 559c232a43caebe41870ce54786f604e, type: 3}
   musicVolume: 0.5
   musicGroup: {fileID: -1747492002647723263, guid: 2a91b2772857a264d8d0144bd39bfd99, type: 2}
 --- !u!114 &1544399853

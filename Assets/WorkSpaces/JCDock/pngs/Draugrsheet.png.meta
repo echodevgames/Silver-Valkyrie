@@ -1,0 +1,988 @@
+fileFormatVersion: 2
+guid: 2866d7995eb103c4a84157d123f161a3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8845042382925056248
+    second: Draugrsheet_0
+  - first:
+      213: 6554859495853574453
+    second: Draugrsheet_1
+  - first:
+      213: 2658850587613977960
+    second: Draugrsheet_2
+  - first:
+      213: 5651027904513762106
+    second: Draugrsheet_3
+  - first:
+      213: -4325788978833320401
+    second: Draugrsheet_4
+  - first:
+      213: -4038460768287463709
+    second: Draugrsheet_5
+  - first:
+      213: -7457622547862816772
+    second: Draugrsheet_6
+  - first:
+      213: 4083823217360279804
+    second: Draugrsheet_7
+  - first:
+      213: 820427728066688957
+    second: Draugrsheet_8
+  - first:
+      213: 6809636518140533795
+    second: Draugrsheet_9
+  - first:
+      213: -78377718258557538
+    second: Draugrsheet_10
+  - first:
+      213: 4786757090276944549
+    second: Draugrsheet_11
+  - first:
+      213: -7289638859283210143
+    second: Draugrsheet_12
+  - first:
+      213: -45908347763500255
+    second: Draugrsheet_13
+  - first:
+      213: 1531059574091616239
+    second: Draugrsheet_14
+  - first:
+      213: -8822615549912076765
+    second: Draugrsheet_15
+  - first:
+      213: -6120143900496886038
+    second: Draugrsheet_16
+  - first:
+      213: 8183260789949321409
+    second: Draugrsheet_17
+  - first:
+      213: -952853570456299847
+    second: Draugrsheet_18
+  - first:
+      213: -1963521955526546099
+    second: Draugrsheet_19
+  - first:
+      213: -2609852314301651057
+    second: Draugrsheet_20
+  - first:
+      213: 5044681171539425474
+    second: Draugrsheet_21
+  - first:
+      213: -1656015244943688547
+    second: Draugrsheet_22
+  - first:
+      213: 1655734396399541513
+    second: Draugrsheet_23
+  - first:
+      213: 5019370719388741232
+    second: Draugrsheet_24
+  - first:
+      213: -3817880013162985123
+    second: Draugrsheet_25
+  - first:
+      213: -3139648315075181586
+    second: Draugrsheet_26
+  - first:
+      213: 6133842024475852804
+    second: Draugrsheet_27
+  - first:
+      213: -8593972272897095009
+    second: Draugrsheet_28
+  - first:
+      213: 7017559923353664052
+    second: Draugrsheet_29
+  - first:
+      213: 5808406050651692208
+    second: Draugrsheet_30
+  - first:
+      213: -342222952039723123
+    second: Draugrsheet_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Draugrsheet_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 448
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8073a76d0d8104580800000000000000
+      internalID: -8845042382925056248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_1
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 384
+        width: 40
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 539c2fa7bf987fa50800000000000000
+      internalID: 6554859495853574453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 447
+        width: 48
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86dd191b58226e420800000000000000
+      internalID: 2658850587613977960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_3
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 384
+        width: 40
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a33ec5050fb7c6e40800000000000000
+      internalID: 5651027904513762106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_4
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 448
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f26175fb7d5b7f3c0800000000000000
+      internalID: -4325788978833320401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_5
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 384
+        width: 40
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e6efd2f35184f7c0800000000000000
+      internalID: -4038460768287463709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_6
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 447
+        width: 48
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf771bd0ec3318890800000000000000
+      internalID: -7457622547862816772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_7
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 383
+        width: 41
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf890444497aca830800000000000000
+      internalID: 4083823217360279804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_8
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 256
+        width: 39
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db7bb4ffbaeb26b00800000000000000
+      internalID: 820427728066688957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_9
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 320
+        width: 34
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32c5b419550b08e50800000000000000
+      internalID: 6809636518140533795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_10
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 321
+        width: 33
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9d94e861eb89eef0800000000000000
+      internalID: -78377718258557538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_11
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 256
+        width: 39
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5aa2a08563afd6240800000000000000
+      internalID: 4786757090276944549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_12
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 320
+        width: 31
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1606a83641006da90800000000000000
+      internalID: -7289638859283210143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_13
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 321
+        width: 35
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12bd457d996ec5ff0800000000000000
+      internalID: -45908347763500255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_14
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 192
+        width: 48
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fef01bb129a6f3510800000000000000
+      internalID: 1531059574091616239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_15
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 191
+        width: 48
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32e27adc6e5cf8580800000000000000
+      internalID: -8822615549912076765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_16
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 255
+        width: 41
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae60c946c81e01ba0800000000000000
+      internalID: -6120143900496886038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_17
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 192
+        width: 48
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c0df49e458c09170800000000000000
+      internalID: 8183260789949321409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_18
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 191
+        width: 48
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b65df1e9b8c6c2f0800000000000000
+      internalID: -952853570456299847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_19
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 256
+        width: 39
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4de8244f2b20c4e0800000000000000
+      internalID: -1963521955526546099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_20
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 64
+        width: 34
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f87a1d1d521f7cbd0800000000000000
+      internalID: -2609852314301651057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_21
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 128
+        width: 39
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c875b23cce420640800000000000000
+      internalID: 5044681171539425474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_22
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 65
+        width: 35
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9cff7e98e6a409e0800000000000000
+      internalID: -1656015244943688547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_23
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 128
+        width: 39
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90d5acb39a95af610800000000000000
+      internalID: 1655734396399541513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_24
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 128
+        width: 39
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07ea925531368a540800000000000000
+      internalID: 5019370719388741232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_25
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 64
+        width: 31
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d594b542b5a240bc0800000000000000
+      internalID: -3817880013162985123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_26
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 127
+        width: 41
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee34a44fd7abd64d0800000000000000
+      internalID: -3139648315075181586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_27
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 65
+        width: 33
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4000f31a2d8cf1550800000000000000
+      internalID: 6133842024475852804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_28
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 0
+        width: 40
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9a896820c31cb880800000000000000
+      internalID: -8593972272897095009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_29
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 0
+        width: 41
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43a3385d191636160800000000000000
+      internalID: 7017559923353664052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_30
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 0
+        width: 40
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bcd250678a9b9050800000000000000
+      internalID: 5808406050651692208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Draugrsheet_31
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 0
+        width: 40
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8fcfadc90e204bf0800000000000000
+      internalID: -342222952039723123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Draugrsheet_0: -8845042382925056248
+      Draugrsheet_1: 6554859495853574453
+      Draugrsheet_10: -78377718258557538
+      Draugrsheet_11: 4786757090276944549
+      Draugrsheet_12: -7289638859283210143
+      Draugrsheet_13: -45908347763500255
+      Draugrsheet_14: 1531059574091616239
+      Draugrsheet_15: -8822615549912076765
+      Draugrsheet_16: -6120143900496886038
+      Draugrsheet_17: 8183260789949321409
+      Draugrsheet_18: -952853570456299847
+      Draugrsheet_19: -1963521955526546099
+      Draugrsheet_2: 2658850587613977960
+      Draugrsheet_20: -2609852314301651057
+      Draugrsheet_21: 5044681171539425474
+      Draugrsheet_22: -1656015244943688547
+      Draugrsheet_23: 1655734396399541513
+      Draugrsheet_24: 5019370719388741232
+      Draugrsheet_25: -3817880013162985123
+      Draugrsheet_26: -3139648315075181586
+      Draugrsheet_27: 6133842024475852804
+      Draugrsheet_28: -8593972272897095009
+      Draugrsheet_29: 7017559923353664052
+      Draugrsheet_3: 5651027904513762106
+      Draugrsheet_30: 5808406050651692208
+      Draugrsheet_31: -342222952039723123
+      Draugrsheet_4: -4325788978833320401
+      Draugrsheet_5: -4038460768287463709
+      Draugrsheet_6: -7457622547862816772
+      Draugrsheet_7: 4083823217360279804
+      Draugrsheet_8: 820427728066688957
+      Draugrsheet_9: 6809636518140533795
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

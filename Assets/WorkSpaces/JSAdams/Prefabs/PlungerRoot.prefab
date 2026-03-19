@@ -328,5 +328,5 @@ MonoBehaviour:
   shakeStrength: 0.06
   shakeDuration: 0.12
   launchScreenShakeIntensity: 0.35
-  launchSound: {fileID: 0}
+  launchSound: {fileID: 8300000, guid: 3b9277ba1ce000e4da881e34291cfc1d, type: 3}
   launchVolume: 0.9

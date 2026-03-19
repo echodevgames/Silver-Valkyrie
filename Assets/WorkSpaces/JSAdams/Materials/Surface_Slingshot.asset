@@ -18,6 +18,6 @@ MonoBehaviour:
   bounceBoostScale: 6
   vibrationIntensity: 0.7
   vibrationDuration: 0.1
-  hitSound: {fileID: 0}
+  hitSound: {fileID: 8300000, guid: 9f46266511116d54a891eb17d09e7c16, type: 3}
   hitVolume: 0.85
   scoreValue: 30
