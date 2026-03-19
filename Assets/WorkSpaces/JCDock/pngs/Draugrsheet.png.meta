@@ -232,15 +232,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Draugrsheet_0
+      name: DraugrsheetDown_0
       rect:
         serializedVersion: 2
-        x: 8
+        x: 0
         y: 448
-        width: 48
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -254,15 +254,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_1
+      name: DraugrsheetDown_1
       rect:
         serializedVersion: 2
-        x: 13
-        y: 384
-        width: 40
-        height: 65
+        x: 64
+        y: 448
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -276,15 +276,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_2
+      name: DraugrsheetDown_2
       rect:
         serializedVersion: 2
-        x: 72
-        y: 447
-        width: 48
-        height: 65
+        x: 129
+        y: 448
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -298,15 +298,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Draugrsheet_3
+      name: DraugrsheetDown_3
       rect:
         serializedVersion: 2
-        x: 77
-        y: 384
-        width: 40
+        x: 192
+        y: 448
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -323,12 +323,12 @@ TextureImporter:
       name: Draugrsheet_4
       rect:
         serializedVersion: 2
-        x: 136
-        y: 448
-        width: 48
+        x: 0
+        y: 384
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -345,12 +345,12 @@ TextureImporter:
       name: Draugrsheet_5
       rect:
         serializedVersion: 2
-        x: 141
+        x: 64
         y: 384
-        width: 40
-        height: 65
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -367,12 +367,12 @@ TextureImporter:
       name: Draugrsheet_6
       rect:
         serializedVersion: 2
-        x: 200
-        y: 447
-        width: 48
-        height: 65
+        x: 128
+        y: 384
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -389,12 +389,12 @@ TextureImporter:
       name: Draugrsheet_7
       rect:
         serializedVersion: 2
-        x: 204
-        y: 383
-        width: 41
-        height: 65
+        x: 192
+        y: 384
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -411,12 +411,12 @@ TextureImporter:
       name: Draugrsheet_8
       rect:
         serializedVersion: 2
-        x: 13
-        y: 256
-        width: 39
-        height: 65
+        x: 0
+        y: 320
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -433,12 +433,12 @@ TextureImporter:
       name: Draugrsheet_9
       rect:
         serializedVersion: 2
-        x: 20
+        x: 64
         y: 320
-        width: 34
-        height: 65
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -455,12 +455,12 @@ TextureImporter:
       name: Draugrsheet_10
       rect:
         serializedVersion: 2
-        x: 84
-        y: 321
-        width: 33
-        height: 63
+        x: 128
+        y: 320
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -477,12 +477,12 @@ TextureImporter:
       name: Draugrsheet_11
       rect:
         serializedVersion: 2
-        x: 141
-        y: 256
-        width: 39
-        height: 65
+        x: 192
+        y: 320
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -499,12 +499,12 @@ TextureImporter:
       name: Draugrsheet_12
       rect:
         serializedVersion: 2
-        x: 148
-        y: 320
-        width: 31
-        height: 65
+        x: 0
+        y: 256
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -521,12 +521,12 @@ TextureImporter:
       name: Draugrsheet_13
       rect:
         serializedVersion: 2
-        x: 210
-        y: 321
-        width: 35
-        height: 63
+        x: 64
+        y: 256
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -543,12 +543,12 @@ TextureImporter:
       name: Draugrsheet_14
       rect:
         serializedVersion: 2
-        x: 8
-        y: 192
-        width: 48
-        height: 65
+        x: 128
+        y: 256
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -565,12 +565,12 @@ TextureImporter:
       name: Draugrsheet_15
       rect:
         serializedVersion: 2
-        x: 72
-        y: 191
-        width: 48
-        height: 65
+        x: 192
+        y: 256
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -587,12 +587,12 @@ TextureImporter:
       name: Draugrsheet_16
       rect:
         serializedVersion: 2
-        x: 76
-        y: 255
-        width: 41
-        height: 65
+        x: 0
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -609,12 +609,12 @@ TextureImporter:
       name: Draugrsheet_17
       rect:
         serializedVersion: 2
-        x: 136
+        x: 64
         y: 192
-        width: 48
-        height: 65
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -631,12 +631,12 @@ TextureImporter:
       name: Draugrsheet_18
       rect:
         serializedVersion: 2
-        x: 200
-        y: 191
-        width: 48
-        height: 65
+        x: 128
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -653,12 +653,12 @@ TextureImporter:
       name: Draugrsheet_19
       rect:
         serializedVersion: 2
-        x: 205
-        y: 256
-        width: 39
+        x: 192
+        y: 192
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -675,12 +675,12 @@ TextureImporter:
       name: Draugrsheet_20
       rect:
         serializedVersion: 2
-        x: 10
-        y: 64
-        width: 34
-        height: 65
+        x: 0
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -697,12 +697,12 @@ TextureImporter:
       name: Draugrsheet_21
       rect:
         serializedVersion: 2
-        x: 12
+        x: 64
         y: 128
-        width: 39
-        height: 65
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -719,12 +719,12 @@ TextureImporter:
       name: Draugrsheet_22
       rect:
         serializedVersion: 2
-        x: 75
-        y: 65
-        width: 35
-        height: 63
+        x: 128
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -741,12 +741,12 @@ TextureImporter:
       name: Draugrsheet_23
       rect:
         serializedVersion: 2
-        x: 76
+        x: 192
         y: 128
-        width: 39
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -763,12 +763,12 @@ TextureImporter:
       name: Draugrsheet_24
       rect:
         serializedVersion: 2
-        x: 140
-        y: 128
-        width: 39
-        height: 65
+        x: 0
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -785,12 +785,12 @@ TextureImporter:
       name: Draugrsheet_25
       rect:
         serializedVersion: 2
-        x: 141
+        x: 64
         y: 64
-        width: 31
-        height: 65
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -807,12 +807,12 @@ TextureImporter:
       name: Draugrsheet_26
       rect:
         serializedVersion: 2
-        x: 203
-        y: 127
-        width: 41
-        height: 65
+        x: 128
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -829,12 +829,12 @@ TextureImporter:
       name: Draugrsheet_27
       rect:
         serializedVersion: 2
-        x: 203
-        y: 65
-        width: 33
-        height: 63
+        x: 192
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -851,12 +851,12 @@ TextureImporter:
       name: Draugrsheet_28
       rect:
         serializedVersion: 2
-        x: 11
+        x: 0
         y: 0
-        width: 40
-        height: 65
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -873,12 +873,12 @@ TextureImporter:
       name: Draugrsheet_29
       rect:
         serializedVersion: 2
-        x: 75
+        x: 64
         y: 0
-        width: 41
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -895,12 +895,12 @@ TextureImporter:
       name: Draugrsheet_30
       rect:
         serializedVersion: 2
-        x: 139
+        x: 128
         y: 0
-        width: 40
-        height: 65
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -917,12 +917,12 @@ TextureImporter:
       name: Draugrsheet_31
       rect:
         serializedVersion: 2
-        x: 203
+        x: 192
         y: 0
-        width: 40
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -939,7 +939,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b031d8023a1c3e64a907304ed5943276
     internalID: 0
     vertices: []
     indices: 
@@ -947,10 +947,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Draugrsheet_0: -8845042382925056248
-      Draugrsheet_1: 6554859495853574453
+      DraugrsheetDown_0: -8845042382925056248
+      DraugrsheetDown_1: 6554859495853574453
+      DraugrsheetDown_2: 2658850587613977960
+      DraugrsheetDown_3: 5651027904513762106
       Draugrsheet_10: -78377718258557538
       Draugrsheet_11: 4786757090276944549
       Draugrsheet_12: -7289638859283210143
@@ -961,7 +965,6 @@ TextureImporter:
       Draugrsheet_17: 8183260789949321409
       Draugrsheet_18: -952853570456299847
       Draugrsheet_19: -1963521955526546099
-      Draugrsheet_2: 2658850587613977960
       Draugrsheet_20: -2609852314301651057
       Draugrsheet_21: 5044681171539425474
       Draugrsheet_22: -1656015244943688547
@@ -972,7 +975,6 @@ TextureImporter:
       Draugrsheet_27: 6133842024475852804
       Draugrsheet_28: -8593972272897095009
       Draugrsheet_29: 7017559923353664052
-      Draugrsheet_3: 5651027904513762106
       Draugrsheet_30: 5808406050651692208
       Draugrsheet_31: -342222952039723123
       Draugrsheet_4: -4325788978833320401
