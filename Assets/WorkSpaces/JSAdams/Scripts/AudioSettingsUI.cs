@@ -45,6 +45,13 @@ public class AudioSettingsUI : MonoBehaviour
     private GameObject _caller;
     private bool       _initialising;
 
+    // Cached volume values — updated on every slider change so SaveValues() never
+    // depends on slider references (which may already be destroyed in OnDestroy).
+    private float _volMaster   = 1f;
+    private float _volMusic    = 1f;
+    private float _volSFX      = 1f;
+    private float _volAmbiance = 1f;
+
     // ── Lifecycle ─────────────────────────────────────────────────────────────
 
     private void Awake()
@@ -54,13 +61,19 @@ public class AudioSettingsUI : MonoBehaviour
 
     private void Start()
     {
+        // Load persisted values into cache first.
+        _volMaster   = PlayerPrefs.GetFloat(KeyMaster,   1f);
+        _volMusic    = PlayerPrefs.GetFloat(KeyMusic,    1f);
+        _volSFX      = PlayerPrefs.GetFloat(KeySFX,      1f);
+        _volAmbiance = PlayerPrefs.GetFloat(KeyAmbiance, 1f);
+
         // Wire callbacks in code so Inspector wiring is not required.
         sliderMaster?.onValueChanged.AddListener(OnMasterChanged);
         sliderMusic?.onValueChanged.AddListener(OnMusicChanged);
         sliderSFX?.onValueChanged.AddListener(OnSFXChanged);
         sliderAmbiance?.onValueChanged.AddListener(OnAmbianceChanged);
 
-        // Restore persisted levels on every session start.
+        // Apply cached levels to the mixer immediately.
         ApplyPersistedLevels();
     }
 
@@ -70,11 +83,14 @@ public class AudioSettingsUI : MonoBehaviour
         sliderMusic?.onValueChanged.RemoveListener(OnMusicChanged);
         sliderSFX?.onValueChanged.RemoveListener(OnSFXChanged);
         sliderAmbiance?.onValueChanged.RemoveListener(OnAmbianceChanged);
+
+        // Persist before scene unload — covers RestartGame() and any unexpected teardown.
+        // Uses cached floats, so slider destruction order doesn't matter.
+        SaveValues();
     }
 
     private void OnApplicationQuit()
     {
-        // Safety save — covers the case where the game exits with the panel open.
         SaveValues();
     }
 
@@ -109,26 +125,46 @@ public class AudioSettingsUI : MonoBehaviour
     // ── Slider callbacks ──────────────────────────────────────────────────────
 
     /// <summary>Called by sliderMaster.onValueChanged.</summary>
-    public void OnMasterChanged(float value)   { if (!_initialising) ApplyToMixer(ParamMaster,   value); }
+    public void OnMasterChanged(float value)
+    {
+        if (_initialising) return;
+        _volMaster = value;
+        ApplyToMixer(ParamMaster, value);
+    }
 
     /// <summary>Called by sliderMusic.onValueChanged.</summary>
-    public void OnMusicChanged(float value)    { if (!_initialising) ApplyToMixer(ParamMusic,    value); }
+    public void OnMusicChanged(float value)
+    {
+        if (_initialising) return;
+        _volMusic = value;
+        ApplyToMixer(ParamMusic, value);
+    }
 
     /// <summary>Called by sliderSFX.onValueChanged.</summary>
-    public void OnSFXChanged(float value)      { if (!_initialising) ApplyToMixer(ParamSFX,      value); }
+    public void OnSFXChanged(float value)
+    {
+        if (_initialising) return;
+        _volSFX = value;
+        ApplyToMixer(ParamSFX, value);
+    }
 
     /// <summary>Called by sliderAmbiance.onValueChanged.</summary>
-    public void OnAmbianceChanged(float value) { if (!_initialising) ApplyToMixer(ParamAmbiance, value); }
+    public void OnAmbianceChanged(float value)
+    {
+        if (_initialising) return;
+        _volAmbiance = value;
+        ApplyToMixer(ParamAmbiance, value);
+    }
 
     // ── Private ───────────────────────────────────────────────────────────────
 
-    /// <summary>Applies persisted PlayerPrefs values straight to the mixer (no slider involvement).</summary>
+    /// <summary>Applies cached volume values straight to the mixer (no slider involvement).</summary>
     private void ApplyPersistedLevels()
     {
-        ApplyToMixer(ParamMaster,   PlayerPrefs.GetFloat(KeyMaster,   1f));
-        ApplyToMixer(ParamMusic,    PlayerPrefs.GetFloat(KeyMusic,    1f));
-        ApplyToMixer(ParamSFX,      PlayerPrefs.GetFloat(KeySFX,      1f));
-        ApplyToMixer(ParamAmbiance, PlayerPrefs.GetFloat(KeyAmbiance, 1f));
+        ApplyToMixer(ParamMaster,   _volMaster);
+        ApplyToMixer(ParamMusic,    _volMusic);
+        ApplyToMixer(ParamSFX,      _volSFX);
+        ApplyToMixer(ParamAmbiance, _volAmbiance);
     }
 
     private void LoadAndApply()
@@ -151,10 +187,11 @@ public class AudioSettingsUI : MonoBehaviour
 
     private void SaveValues()
     {
-        if (sliderMaster   != null) PlayerPrefs.SetFloat(KeyMaster,   sliderMaster.value);
-        if (sliderMusic    != null) PlayerPrefs.SetFloat(KeyMusic,    sliderMusic.value);
-        if (sliderSFX      != null) PlayerPrefs.SetFloat(KeySFX,      sliderSFX.value);
-        if (sliderAmbiance != null) PlayerPrefs.SetFloat(KeyAmbiance, sliderAmbiance.value);
+        // Uses cached floats — safe to call from OnDestroy regardless of slider state.
+        PlayerPrefs.SetFloat(KeyMaster,   _volMaster);
+        PlayerPrefs.SetFloat(KeyMusic,    _volMusic);
+        PlayerPrefs.SetFloat(KeySFX,      _volSFX);
+        PlayerPrefs.SetFloat(KeyAmbiance, _volAmbiance);
         PlayerPrefs.Save();
     }
 

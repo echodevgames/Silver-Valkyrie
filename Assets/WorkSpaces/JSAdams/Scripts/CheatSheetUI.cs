@@ -16,7 +16,9 @@ public class CheatSheetUI : MonoBehaviour
         "<color=#5AB8D8><b>[B]</b></color>  <color=#ECE8D8>Spawn ball</color>\n" +
         "<color=#5AB8D8><b>[K]</b></color>  <color=#ECE8D8>Kill ball</color>  <color=#889098>(costs a life)</color>\n" +
         "<color=#5AB8D8><b>[L]</b></color>  <color=#ECE8D8>+1 life</color>\n" +
-        "<color=#5AB8D5><b>[R]</b></color>  <color=#ECE8D8>Restart</color>  <color=#889098>(unfreezes game over)</color>\n\n" +
+        "<color=#5AB8D5><b>[R]</b></color>  <color=#ECE8D8>Restart</color>  <color=#889098>(unfreezes game over)</color>\n" +
+        "<color=#5AB8D8><b>[T]</b></color>  <color=#ECE8D8>SLAY +1 letter</color>  <color=#889098>(simulates kill)</color>\n" +
+        "<color=#5AB8D8><b>[Y]</b></color>  <color=#ECE8D8>SLAY full trigger</color>  <color=#889098>(instant mode)</color>\n\n" +
         "<color=#889098><size=80%>[H] to close</size></color>";
 
     private void Awake()

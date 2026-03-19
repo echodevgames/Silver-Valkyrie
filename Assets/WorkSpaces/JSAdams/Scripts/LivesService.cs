@@ -32,9 +32,6 @@ public class LivesService : MonoBehaviour
         LivesRemaining = startingLives;
     }
 
-    private void OnEnable()  => BallLifeService.OnGameOver += HandleGameOver;
-    private void OnDisable() => BallLifeService.OnGameOver -= HandleGameOver;
-
     // ── Public API ────────────────────────────────────────────────────────────
 
     /// <summary>Resets lives back to the starting amount for a new session.</summary>
@@ -44,17 +41,23 @@ public class LivesService : MonoBehaviour
         OnLivesChanged?.Invoke(LivesRemaining);
     }
 
-    // ── Private ───────────────────────────────────────────────────────────────
-
-    private void HandleGameOver()
+    /// <summary>
+    /// Spends one continue to resume play. Resets the ball pool and returns true if successful.
+    /// Returns false (and fires <see cref="OnTrueGameOver"/>) if no continues remain.
+    /// </summary>
+    public bool UseContinue()
     {
-        LivesRemaining = Mathf.Max(0, LivesRemaining - 1);
-        Debug.Log($"[LivesService] Life consumed. Remaining: {LivesRemaining}");
-        OnLivesChanged?.Invoke(LivesRemaining);
-
-        if (LivesRemaining > 0)
-            BallLifeService.Instance?.ResetBalls();
-        else
+        if (LivesRemaining <= 0)
+        {
+            Debug.Log("[LivesService] No continues remaining — true game over.");
             OnTrueGameOver?.Invoke();
+            return false;
+        }
+
+        LivesRemaining = Mathf.Max(0, LivesRemaining - 1);
+        Debug.Log($"[LivesService] Continue used. Remaining: {LivesRemaining}");
+        OnLivesChanged?.Invoke(LivesRemaining);
+        BallLifeService.Instance?.ResetBalls();
+        return true;
     }
 }

@@ -25,6 +25,8 @@ public class GameDirector : MonoBehaviour
     [Tooltip("Seconds to wait after the last ball drains before reloading the scene.")]
     [SerializeField] private float gameOverDelay = 3f;
 
+    private Coroutine _gameOverCoroutine;
+
     private void Awake()
     {
         Instance = this;
@@ -32,14 +34,14 @@ public class GameDirector : MonoBehaviour
 
     private void OnEnable()
     {
-        BallLifeService.OnBallLost  += HandleBallLost;
-        BallLifeService.OnGameOver  += HandleGameOver;
+        BallLifeService.OnBallLost += HandleBallLost;
+        BallLifeService.OnGameOver += HandleGameOver;
     }
 
     private void OnDisable()
     {
-        BallLifeService.OnBallLost  -= HandleBallLost;
-        BallLifeService.OnGameOver  -= HandleGameOver;
+        BallLifeService.OnBallLost -= HandleBallLost;
+        BallLifeService.OnGameOver -= HandleGameOver;
     }
 
     private void HandleBallLost(int remaining)
@@ -50,8 +52,25 @@ public class GameDirector : MonoBehaviour
 
     private void HandleGameOver()
     {
-        Debug.Log($"[GameDirector] GAME OVER — restarting in {gameOverDelay}s.");
-        StartCoroutine(GameOverRoutine());
+        Debug.Log($"[GameDirector] GAME OVER — freezing in {gameOverDelay}s.");
+        _gameOverCoroutine = StartCoroutine(GameOverRoutine());
+    }
+
+    /// <summary>
+    /// Cancels the pending game-over freeze. Call this when a continue is used so the
+    /// freeze coroutine does not fire after the player has already resumed play.
+    /// Also ensures time and audio are unpaused if the freeze already triggered.
+    /// </summary>
+    public void CancelGameOverFreeze()
+    {
+        if (_gameOverCoroutine != null)
+        {
+            StopCoroutine(_gameOverCoroutine);
+            _gameOverCoroutine = null;
+        }
+
+        Time.timeScale      = 1f;
+        AudioListener.pause = false;
     }
 
     private IEnumerator RespawnRoutine()

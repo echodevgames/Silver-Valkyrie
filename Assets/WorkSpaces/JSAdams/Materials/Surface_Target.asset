@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9e4ad33911d6de4fbb03ba4f9c89917, type: 3}
-  m_Name: Surface_Metal
+  m_Name: Surface_Target
   m_EditorClassIdentifier: Assembly-CSharp::SurfaceMaterialData
-  surfaceType: 3
-  physicsMaterial: {fileID: 6200000, guid: 0a68df5c57fe1264fbf92943c707c115, type: 2}
-  shakeIntensity: 0.1
-  bounceBoostScale: 1
-  vibrationIntensity: 0.2
-  vibrationDuration: 0.05
-  hitSound: {fileID: 8300000, guid: c0d4505c09ac35141ad7c1fd8946b7c3, type: 3}
-  hitVolume: 0.6
-  scoreValue: 5
+  surfaceType: 5
+  physicsMaterial: {fileID: 6200000, guid: fbd61f9eb0c9536479f7af7f1630fbb8, type: 2}
+  shakeIntensity: 0.35
+  bounceBoostScale: 2
+  vibrationIntensity: 0.55
+  vibrationDuration: 0.09
+  hitSound: {fileID: 0}
+  hitVolume: 0.85
+  scoreValue: 50
