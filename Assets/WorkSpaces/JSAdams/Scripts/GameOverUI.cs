@@ -1,10 +1,15 @@
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Listens for BallLifeService.OnGameOver, submits the final score to HighScoreService,
 /// and shows the game over panel with rank feedback, top 3 scores, and action buttons.
+///
+/// Continue button is enabled only when LivesService reports remaining continues.
+/// Clicking it calls LivesService.UseContinue(), cancels the GameDirector freeze, and
+/// spawns a new ball so play resumes immediately.
 ///
 /// Button callbacks are wired via Inspector PersistentCalls — no AddListener required.
 /// </summary>
@@ -14,6 +19,10 @@ public class GameOverUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI  scoreText;
     [SerializeField] private TextMeshProUGUI  topScoresText;
     [SerializeField] private HighScoreBoardUI highScoreBoard;
+
+    [Header("Continue")]
+    [SerializeField] private Button           continueButton;
+    [SerializeField] private TextMeshProUGUI  continueLabel;
 
     private void Awake()
     {
@@ -43,6 +52,7 @@ public class GameOverUI : MonoBehaviour
             scoreText.text = sb.ToString();
 
         RefreshTopScores();
+        RefreshContinueButton();
         panel?.SetActive(true);
     }
 
@@ -73,7 +83,32 @@ public class GameOverUI : MonoBehaviour
         topScoresText.text = sb.ToString();
     }
 
+    private void RefreshContinueButton()
+    {
+        if (continueButton == null) return;
+
+        int lives = LivesService.Instance?.LivesRemaining ?? 0;
+        continueButton.interactable = lives > 0;
+
+        if (continueLabel != null)
+            continueLabel.text = lives > 0 ? $"CONTINUE  ({lives})" : "CONTINUE";
+    }
+
     // ── Button callbacks — wired via Inspector PersistentCalls ────────────────
+
+    /// <summary>
+    /// Spends one continue, cancels the game-over freeze, hides the panel, and spawns a ball.
+    /// </summary>
+    public void OnContinue()
+    {
+        bool success = LivesService.Instance?.UseContinue() ?? false;
+        if (!success) return;
+
+        Debug.Log("[GameOver] Continue used — resuming play.");
+        GameDirector.Instance?.CancelGameOverFreeze();
+        panel?.SetActive(false);
+        GameDirector.Instance?.SpawnBall();
+    }
 
     /// <summary>Resets time and audio, then reloads the scene via GameDirector.</summary>
     public void OnRestart()
@@ -85,10 +120,10 @@ public class GameOverUI : MonoBehaviour
         GameDirector.Instance?.RestartGame();
     }
 
-    /// <summary>Opens the high score board overlay.</summary>
+    /// <summary>Opens the high score board overlay and hides the game over panel behind it.</summary>
     public void OnViewHighScores()
     {
         Debug.Log("[GameOver] View High Scores");
-        highScoreBoard?.Show();
+        highScoreBoard?.Show(panel);
     }
 }

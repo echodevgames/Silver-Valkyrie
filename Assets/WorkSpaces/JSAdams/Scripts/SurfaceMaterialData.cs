@@ -8,7 +8,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Surface_New", menuName = "Silver Valkyrie/Surface Material")]
 public class SurfaceMaterialData : ScriptableObject
 {
-    public enum SurfaceType { Rubber, Wood, Ice, Metal, Stone, Custom }
+    public enum SurfaceType { Rubber, Wood, Metal, Stone, Bumper, Target, Ice, Custom }
 
     [Header("Identity")]
     [Tooltip("Descriptive category used by future systems (audio, VFX, scoring).")]

@@ -13,6 +13,8 @@ using UnityEngine.InputSystem;
 ///   L  — Add one ball/life to the pool
 ///   H  — Toggle cheat sheet overlay
 ///   R  — Restart (reload the scene, unfreeze time and audio)
+///   T  — Advance SLAY chain by one letter (simulates an enemy kill)
+///   Y  — Instantly trigger full SLAY Mode (all four letters lit)
 /// </summary>
 public class CheatController : MonoBehaviour
 {
@@ -76,10 +78,14 @@ public class CheatController : MonoBehaviour
 #if !UNITY_EDITOR && !DEVELOPMENT_BUILD
         return;
 #endif
-        if (_cheatsMap != null) return; // action map has taken over
-
         var keyboard = Keyboard.current;
         if (keyboard == null) return;
+
+        // T and Y have no InputAction map entry — always poll them directly.
+        if (keyboard.tKey.wasPressedThisFrame) OnSlayKill();
+        if (keyboard.yKey.wasPressedThisFrame) OnSlayFull();
+
+        if (_cheatsMap != null) return; // remaining keys handled by the action map
 
         if (keyboard.bKey.wasPressedThisFrame) OnSpawnBall();
         if (keyboard.kKey.wasPressedThisFrame) OnKillBall();
@@ -129,5 +135,26 @@ public class CheatController : MonoBehaviour
         Time.timeScale      = 1f;
         AudioListener.pause = false;
         gameDirector.RestartGame();
+    }
+
+    private void OnSlayKill(InputAction.CallbackContext _ = default)
+    {
+        var slay = SlayService.Instance;
+        if (slay == null) { Debug.LogWarning("[CHEAT] SlayService not found."); return; }
+        Debug.Log($"[CHEAT] SLAY kill → {slay.CurrentCount + 1}/4");
+        slay.RegisterKill();
+    }
+
+    private void OnSlayFull(InputAction.CallbackContext _ = default)
+    {
+        var slay = SlayService.Instance;
+        if (slay == null) { Debug.LogWarning("[CHEAT] SlayService not found."); return; }
+        if (slay.IsSlayModeActive) { Debug.Log("[CHEAT] SLAY Mode already active."); return; }
+
+        // Fill remaining letters then trigger.
+        int remaining = 4 - slay.CurrentCount;
+        Debug.Log($"[CHEAT] SLAY full — registering {remaining} kill(s) to trigger mode.");
+        for (int i = 0; i < remaining; i++)
+            slay.RegisterKill();
     }
 }

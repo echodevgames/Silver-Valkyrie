@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// Renders the leaderboard from HighScoreService and shows it as an overlay panel.
-/// Call Show() to open (wired from PauseMenuUI.OnHighScores).
+/// Uses the caller-swap pattern: Show(caller) hides the calling panel; OnClose() restores it.
 /// The Close button wires to OnClose() via Inspector PersistentCalls.
 /// </summary>
 public class HighScoreBoardUI : MonoBehaviour
@@ -12,23 +12,36 @@ public class HighScoreBoardUI : MonoBehaviour
     [SerializeField] private GameObject          panel;
     [SerializeField] private TextMeshProUGUI     boardText;
 
+    private GameObject _caller;
+
     private void Awake()
     {
         if (panel != null)
             panel.SetActive(false);
     }
 
-    /// <summary>Refreshes leaderboard text and shows the panel.</summary>
-    public void Show()
+    /// <summary>Refreshes leaderboard text, hides the caller panel, and shows the board.</summary>
+    public void Show(GameObject caller)
     {
+        _caller = caller;
+        if (_caller != null) _caller.SetActive(false);
         RefreshBoard();
         panel?.SetActive(true);
     }
 
-    /// <summary>Hides the panel. Wired to the Close button via PersistentCalls.</summary>
+    /// <summary>Hides the panel and restores the caller. Wired to the Close button via PersistentCalls.</summary>
     public void OnClose()
     {
         panel?.SetActive(false);
+        if (_caller != null) _caller.SetActive(true);
+        _caller = null;
+    }
+
+    /// <summary>Tears down the panel without restoring the caller. Used when the entire pause stack is force-dismissed.</summary>
+    public void ForceClose()
+    {
+        panel?.SetActive(false);
+        _caller = null;
     }
 
     private void RefreshBoard()

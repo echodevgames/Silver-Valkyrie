@@ -24,6 +24,9 @@ public class BallRegistry : MonoBehaviour
     /// </summary>
     public static event Action<Transform> OnPrimaryChanged;
 
+    /// <summary>Fired whenever the active ball count changes. Parameter = new total.</summary>
+    public static event Action<int> OnBallCountChanged;
+
     /// <summary>Transform of the current primary ball, or null if no balls are active.</summary>
     public Transform PrimaryBall => _primary != null ? _primary.transform : null;
 
@@ -44,6 +47,7 @@ public class BallRegistry : MonoBehaviour
         if (!_balls.Contains(ball))
             _balls.Add(ball);
 
+        OnBallCountChanged?.Invoke(_balls.Count);
         EvaluatePrimary();
     }
 
@@ -51,6 +55,7 @@ public class BallRegistry : MonoBehaviour
     public void Deregister(BallRegistrant ball)
     {
         _balls.Remove(ball);
+        OnBallCountChanged?.Invoke(_balls.Count);
         EvaluatePrimary();
     }
 

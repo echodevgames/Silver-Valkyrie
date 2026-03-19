@@ -36,7 +36,6 @@ public class Flipper : MonoBehaviour
     [SerializeField] private float engageVolume = 0.9f;
 
     private Rigidbody2D rb;
-    private SilverValkyrieInput input;
     private InputAction flipAction;
     private bool isPressed;
 
@@ -47,30 +46,33 @@ public class Flipper : MonoBehaviour
         rb.useFullKinematicContacts = true;
         rb.constraints = RigidbodyConstraints2D.FreezePosition;
         rb.MoveRotation(EffectiveAngle(restAngle));
-
-        input = new SilverValkyrieInput();
-        flipAction = side == Side.Left
-            ? input.Gameplay.LeftFlipper
-            : input.Gameplay.RightFlipper;
     }
 
     private void OnEnable()
     {
-        input.Gameplay.Enable();
+        var svInput = InputService.Instance?.Input;
+        if (svInput == null)
+        {
+            Debug.LogError("[Flipper] InputService not ready — no input response.");
+            return;
+        }
+
+        flipAction = side == Side.Left
+            ? svInput.Gameplay.LeftFlipper
+            : svInput.Gameplay.RightFlipper;
+
         flipAction.performed += OnPressed;
         flipAction.canceled  += OnReleased;
     }
 
     private void OnDisable()
     {
-        flipAction.performed -= OnPressed;
-        flipAction.canceled  -= OnReleased;
-        input.Gameplay.Disable();
-    }
-
-    private void OnDestroy()
-    {
-        input.Dispose();
+        if (flipAction != null)
+        {
+            flipAction.performed -= OnPressed;
+            flipAction.canceled  -= OnReleased;
+            flipAction = null;
+        }
     }
 
     /// <summary>Called when the flip button is pressed.</summary>
